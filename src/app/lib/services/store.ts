@@ -1,12 +1,13 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { DismissAlert, ListAlerts } from "../features/alert";
-import { PluseLoading } from "../features/loading";
-import { theme } from "../features/theme";
+import { configureStore } from '@reduxjs/toolkit';
+import { DismissAlert, ListAlerts } from '../features/alert';
+import { PluseLoading } from '../features/loading';
+import { theme } from '../features/theme';
 
-import apiCallStatus from "../features/apiCallStatus/apiCallStatus";
-import languages from "@/app/languages/reducers/languages.slice";
-import about from "@/app/about/reducers/about.slice";
-import services from "@/app/services/reducers/services.slice";
+import apiCallStatus from '../features/apiCallStatus/apiCallStatus';
+import languages from '@/app/languages/reducers/languages.slice';
+import about from '@/app/about/reducers/about.slice';
+import services from '@/app/services/reducers/services.slice';
+import teams from '@/app/teams/reducers/teams.slice';
 
 const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ const store = configureStore({
     languages,
     about,
     services,
+    teams,
   },
   devTools: true,
 });

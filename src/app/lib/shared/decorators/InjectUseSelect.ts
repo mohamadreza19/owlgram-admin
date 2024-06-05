@@ -1,10 +1,5 @@
-import { RootState } from "../../services/store";
-
-type Segments = keyof RootState;
-
-export type UseSelectMethod<S extends keyof RootState> = (
-  asHook: boolean
-) => RootState[S];
+import { RootState } from '../../services/store';
+import { Segments } from '../interfaces';
 
 function InjectUseSelect(segment: Segments) {
   return function (target: any) {

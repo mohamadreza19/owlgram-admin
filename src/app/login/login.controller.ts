@@ -1,8 +1,8 @@
-import { ErrorFactory, TokenStorageService } from "@lib/services";
-import { LoginPostBody } from "./interfaces";
-import LoginApiService from "./login.api";
-import LoginService from "./login.service";
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { ErrorFactory, TokenStorageService } from '@lib/services';
+import { LoginPostBody } from './interfaces';
+import LoginApiService from './login.api';
+import LoginService from './login.service';
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 
 class LoginController {
   constructor(
@@ -19,10 +19,10 @@ class LoginController {
       String(result.expireDateToken)
     );
 
-    this.router.push("/");
+    this.router.push('/');
   };
 
-  authorizeUserIfLogin = () => {
+  authorizeUserIfLogin = (path: string) => {
     const expireDate_ms = this.tokenStorageService.getAccessTokenExpire();
     const now_ms = Number(new Date());
     if (expireDate_ms) {
@@ -30,12 +30,14 @@ class LoginController {
       let date = new Date(expireDate_msToNum);
 
       if (expireDate_msToNum > now_ms) {
-        this.router.push("/");
+        if (path.includes('login')) {
+          this.router.push('/');
+        }
       } else {
-        this.router.push("/login");
+        this.router.push('/login');
       }
     } else {
-      this.router.push("/login");
+      this.router.push('/login');
     }
   };
 

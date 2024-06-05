@@ -1,13 +1,13 @@
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import FilesApiService from "../files/files.api";
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
+import FilesApiService from '../files/files.api';
 import {
-  FormikCreate2,
   FormikCreateAboutOwlgramBasedLanguageId,
   FormikCreatelanguage,
-} from "./interfaces";
-import LanguagesApiService from "./languages.api";
-import LanguagesService from "./languages.service";
-import { AlertService } from "../lib/services";
+} from './interfaces';
+import LanguagesApiService from './languages.api';
+import LanguagesService from './languages.service';
+import { AlertService } from '../lib/services';
+import { FormikCreate2 } from '../lib/shared/interfaces';
 
 class LanguagesController {
   constructor(
@@ -37,11 +37,11 @@ class LanguagesController {
         flag: fileResult,
       });
       this.handleFetchLanguages();
-      this.router.push("/languages");
+      this.router.push('/languages');
       this.alertService.addDismissAlert({
-        message: "Language add successful",
+        message: 'Language add successful',
         open: true,
-        type: "success",
+        type: 'success',
       });
     }
   };
@@ -61,12 +61,12 @@ class LanguagesController {
       language_id,
       media: responses,
     });
-    this.router.push("/languages");
+    this.router.push('/languages');
 
     this.alertService.addDismissAlert({
-      message: "Content for aboutOwlegram based language add successful",
+      message: 'Content for aboutOwlegram based language add successful',
       open: true,
-      type: "success",
+      type: 'success',
     });
   };
   handleCreateServiceBasedLanguageId = async ({
@@ -82,12 +82,12 @@ class LanguagesController {
         language_id,
         media: stringFile,
       });
-      this.router.push("/languages");
+      this.router.push('/languages');
 
       this.alertService.addDismissAlert({
-        message: "Service based language add successful",
+        message: 'Service based language add successful',
         open: true,
-        type: "success",
+        type: 'success',
       });
     }
   };

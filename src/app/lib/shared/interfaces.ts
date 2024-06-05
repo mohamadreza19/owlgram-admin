@@ -1,6 +1,5 @@
-import { SetFormikErrorField } from "@/app/auth/interfaces";
-import { Category } from "@/app/categories/interfaces";
-import { ButtonHTMLAttributes, ReactNode, SetStateAction } from "react";
+import { ButtonHTMLAttributes, ReactNode, SetStateAction } from 'react';
+import { RootState } from '../services/store';
 
 export interface ModuleProps {
   children: ReactNode;
@@ -16,25 +15,12 @@ export type SetHasNextPage = (value: SetStateAction<boolean>) => void;
 export type SetSearch = (value: SetStateAction<string>) => void;
 
 export interface ApiCallStatus {
-  status: "success" | "error" | "idle" | "loading";
+  status: 'success' | 'error' | 'idle' | 'loading';
 
   error?: {
     statusCode: number;
     message: string;
   };
-}
-
-export interface UserLoginStep {
-  sendVerifyCode?: (email: string) => void;
-  submit: (
-    value: string,
-    setFormikEmailErrorField: SetFormikErrorField
-  ) => void;
-  secondSubmit?: () => void;
-  increment?: () => void;
-  decrement?: () => void;
-  email?: string;
-  apiCallStatus: ApiCallStatus;
 }
 
 export interface Button extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -56,13 +42,12 @@ export enum AxiosErrorStatus {
 //   None = "",
 // }
 export enum CategoriseSegment {
-  "mobile" = "mobile",
-  "electronic-devices" = "electronic-devices",
-  "book-and-media" = "book-and-media",
+  'mobile' = 'mobile',
+  'electronic-devices' = 'electronic-devices',
+  'book-and-media' = 'book-and-media',
 }
 
 export type CategoriseSegmentValues = keyof typeof CategoriseSegment;
-export type HoverCategoryFn = (category: Category | null) => void;
 
 export interface Item {
   text: string;
@@ -72,4 +57,21 @@ export interface Item {
 export interface IMegaMenuListSection {
   label: Item;
   items: Item[];
+}
+export type Segments = keyof RootState;
+
+export type UseSelectMethod<S extends keyof RootState> = (
+  asHook: boolean
+) => RootState[S];
+
+export interface FormikCreate2 {
+  language_id: string;
+  content: string;
+  media: File | null;
+}
+export interface FormikCreate3 {
+  language_id: string;
+  name: string;
+  image: File | null;
+  side: string;
 }

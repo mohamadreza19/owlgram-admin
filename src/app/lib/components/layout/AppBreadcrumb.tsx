@@ -1,8 +1,8 @@
-import React from "react";
-import { usePathname } from "next/navigation";
+import React from 'react';
+import { usePathname } from 'next/navigation';
 
-import { CBreadcrumb, CBreadcrumbItem } from "@coreui/react-pro";
-import Link from "next/link";
+import { CBreadcrumb, CBreadcrumbItem } from '@coreui/react-pro';
+import Link from 'next/link';
 
 type breadcrumb = {
   pathname?: string;
@@ -16,17 +16,17 @@ type route = {
 };
 
 const routeNames = [
-  { path: "/", name: "Dashboard" },
-  { path: "/components/base/navs", name: "Navs & Tabs" },
+  { path: '/', name: 'Dashboard' },
+  { path: '/components/base/navs', name: 'Navs & Tabs' },
 ];
 
 const humanize = (text: string) => {
   const string = text
-    .split("-")
+    .split('-')
     .reduce(
       (accumulator, currentValue) =>
         accumulator +
-        " " +
+        ' ' +
         currentValue[0].toUpperCase() +
         currentValue.slice(1)
     );
@@ -40,7 +40,7 @@ const getRouteName = (pathname: string, routes: route[]) => {
 
 const getBreadcrumbs = (location: string) => {
   const breadcrumbs: breadcrumb[] = [];
-  location.split("/").reduce((prev, curr, index, array) => {
+  location.split('/').reduce((prev, curr, index, array) => {
     const currentPathname = `${prev}/${curr}`;
     const routeName =
       getRouteName(currentPathname, routeNames) || humanize(curr);
@@ -61,7 +61,8 @@ const AppBreadcrumb = () => {
 
   return (
     <CBreadcrumb className="m-0 ms-2">
-      <CBreadcrumbItem href="/">Home</CBreadcrumbItem>
+      <Link href="/">Home</Link>
+
       {breadcrumbs &&
         breadcrumbs.map((breadcrumb, index) => {
           if (breadcrumb.pathname)
@@ -70,7 +71,7 @@ const AppBreadcrumb = () => {
                 <div className="mx-1 !text-gray-300">/</div>
                 <Link
                   className={`
-                text-[#0d6efd]  ${breadcrumb.active && "!text-gray-300"}
+                text-[#0d6efd]  ${breadcrumb.active && '!text-gray-300'}
               `}
                   href={breadcrumb.pathname}
                 >

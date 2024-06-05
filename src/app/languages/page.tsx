@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import {
   CButton,
   CButtonGroup,
@@ -7,83 +7,84 @@ import {
   CCardHeader,
   CCol,
   CRow,
-} from "@coreui/react-pro";
+} from '@coreui/react-pro';
 
-import Image from "next/image";
-import { FunctionComponent } from "react";
-import LanguagesModule, { useLanguagesInjection } from "./languages.module";
-import { type Language } from "./interfaces";
-import Link from "next/link";
-import { Tooltip1 } from "@lib/components";
-import { GoEye } from "react-icons/go";
-import { IoIosAdd } from "react-icons/io";
+import Image from 'next/image';
+import { FunctionComponent } from 'react';
+import LanguagesModule, { useLanguagesInjection } from './languages.module';
+import { type Language } from './interfaces';
+
+import { Tooltip1 } from '@lib/components';
+import { GoEye } from 'react-icons/go';
+import { IoIosAdd } from 'react-icons/io';
+import Link from 'next/link';
 
 interface LanguagesProps {}
 
 const languages = [
   {
-    title: "Al",
-    src: "https://www.worldometers.info/img/flags/al-flag.gif",
+    title: 'Al',
+    src: 'https://www.worldometers.info/img/flags/al-flag.gif',
   },
   {
-    title: "Tr",
-    src: "https://www.worldometers.info/img/flags/tu-flag.gif",
+    title: 'Tr',
+    src: 'https://www.worldometers.info/img/flags/tu-flag.gif',
   },
   {
-    title: "Al",
-    src: "https://www.worldometers.info/img/flags/al-flag.gif",
+    title: 'Al',
+    src: 'https://www.worldometers.info/img/flags/al-flag.gif',
   },
   {
-    title: "Tr",
-    src: "https://www.worldometers.info/img/flags/tu-flag.gif",
+    title: 'Tr',
+    src: 'https://www.worldometers.info/img/flags/tu-flag.gif',
   },
   {
-    title: "Al",
-    src: "https://www.worldometers.info/img/flags/al-flag.gif",
+    title: 'Al',
+    src: 'https://www.worldometers.info/img/flags/al-flag.gif',
   },
   {
-    title: "Tr",
-    src: "https://www.worldometers.info/img/flags/tu-flag.gif",
+    title: 'Tr',
+    src: 'https://www.worldometers.info/img/flags/tu-flag.gif',
   },
   {
-    title: "Al",
-    src: "https://www.worldometers.info/img/flags/al-flag.gif",
+    title: 'Al',
+    src: 'https://www.worldometers.info/img/flags/al-flag.gif',
   },
   {
-    title: "Tr",
-    src: "https://www.worldometers.info/img/flags/tu-flag.gif",
+    title: 'Tr',
+    src: 'https://www.worldometers.info/img/flags/tu-flag.gif',
   },
   {
-    title: "Al",
-    src: "https://www.worldometers.info/img/flags/al-flag.gif",
+    title: 'Al',
+    src: 'https://www.worldometers.info/img/flags/al-flag.gif',
   },
   {
-    title: "Tr",
-    src: "https://www.worldometers.info/img/flags/tu-flag.gif",
+    title: 'Tr',
+    src: 'https://www.worldometers.info/img/flags/tu-flag.gif',
   },
   {
-    title: "Al",
-    src: "https://www.worldometers.info/img/flags/al-flag.gif",
+    title: 'Al',
+    src: 'https://www.worldometers.info/img/flags/al-flag.gif',
   },
   {
-    title: "Tr",
-    src: "https://www.worldometers.info/img/flags/tu-flag.gif",
+    title: 'Tr',
+    src: 'https://www.worldometers.info/img/flags/tu-flag.gif',
   },
   {
-    title: "Al",
-    src: "https://www.worldometers.info/img/flags/al-flag.gif",
+    title: 'Al',
+    src: 'https://www.worldometers.info/img/flags/al-flag.gif',
   },
   {
-    title: "Tr",
-    src: "https://www.worldometers.info/img/flags/tu-flag.gif",
+    title: 'Tr',
+    src: 'https://www.worldometers.info/img/flags/tu-flag.gif',
   },
   {
-    title: "Al",
-    src: "https://www.worldometers.info/img/flags/al-flag.gif",
+    title: 'Al',
+    src: 'https://www.worldometers.info/img/flags/al-flag.gif',
   },
   {
-    title: "Tr",
-    src: "https://www.worldometers.info/img/flags/tu-flag.gif",
+    title: 'Tr',
+    src: 'https://www.worldometers.info/img/flags/tu-flag.gif',
   },
 ];
 
@@ -103,46 +104,50 @@ const Languages: FunctionComponent<LanguagesProps> = () => {
 
 const menu = [
   {
-    header: "About Owlegram",
+    header: 'About Owlegram',
     section: [
       {
-        text: "Add",
-        baseHref: "/about/create/",
+        text: 'Add',
+        baseHref: '/about/create/',
       },
       {
-        text: "show",
-        baseHref: "/about/",
+        text: 'show',
+        baseHref: '/about/',
       },
     ],
   },
   {
-    header: "Services",
+    header: 'Services',
     section: [
       {
-        text: "Add",
-        baseHref: "/services/create-service/",
+        text: 'Add',
+        baseHref: '/services/create-service/',
       },
       {
-        text: "Show",
-        baseHref: "/services/",
-      },
-    ],
-  },
-  {
-    header: "Teams",
-    section: [
-      {
-        text: "Add",
-        baseHref: "/languages/create-service/",
+        text: 'Show',
+        baseHref: '/services/',
       },
     ],
   },
   {
-    header: "Downloads",
+    header: 'Teams',
     section: [
       {
-        text: "Add",
-        baseHref: "/languages/create-service/",
+        text: 'Add',
+        baseHref: '/teams/create/',
+      },
+      {
+        text: 'show',
+        baseHref: '/teams/',
+      },
+    ],
+  },
+  {
+    header: 'Downloads',
+    section: [
+      {
+        text: 'Add',
+        baseHref: '/languages/create-service/',
       },
     ],
   },
@@ -152,7 +157,7 @@ const Language = (props: Language) => {
     <>
       <div className="tooltip1-hover m-auto w-fit border border-gray-300 !rounded-md  ">
         <div className="w-full  flex flex-col  justify-center items-center ">
-          <Link href={"/languages/" + props.id}>
+          <Link href={'/languages/' + props.id}>
             <Image
               className="h-[150px] min-h-[150px] max-h-[150px] max-w-[200px] object-cover border-b border-gray-300"
               width={300}

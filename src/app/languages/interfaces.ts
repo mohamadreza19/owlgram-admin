@@ -1,5 +1,5 @@
-import LanguagesService from "./languages.service";
-import LanguagesController from "./languages.controller";
+import LanguagesService from './languages.service';
+import LanguagesController from './languages.controller';
 export type Language = {
   title: string;
   flag: string;
@@ -38,11 +38,7 @@ export interface FormikCreateAboutOwlgramBasedLanguageId {
   content: string;
   media: File[];
 }
-export interface FormikCreate2 {
-  language_id: string;
-  content: string;
-  media: File | null;
-}
+
 export interface LanguagesInjectionEntities {
   languagesService: LanguagesService;
   languagesController: LanguagesController;
