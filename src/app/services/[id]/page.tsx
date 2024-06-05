@@ -1,0 +1,31 @@
+"use client";
+import { useParams } from "next/navigation";
+import { FunctionComponent, useEffect } from "react";
+
+import { Navigation, Pagination } from "swiper/modules";
+
+import { Card1 } from "@/app/lib/components/card";
+import { useServicesInjection } from "../services.module";
+
+interface FlagProps {}
+
+const Flag: FunctionComponent<FlagProps> = () => {
+  const module = useServicesInjection();
+  const services = module.servicesService.getServices(true);
+  const { id } = useParams<{ id: string }>();
+  useEffect(() => {
+    if (id) {
+      module.servicesController.handleFetchServiceBasedLanguageId(id);
+    }
+  }, [id]);
+
+  return (
+    <div className="w-[300px] container grid grid-cols-1 gap-y-5 pb-3">
+      {services.map((item, i) => (
+        <Card1 key={i} {...item} />
+      ))}
+    </div>
+  );
+};
+
+export default Flag;
