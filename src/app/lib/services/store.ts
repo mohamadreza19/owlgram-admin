@@ -8,6 +8,8 @@ import languages from '@/app/languages/reducers/languages.slice';
 import about from '@/app/about/reducers/about.slice';
 import services from '@/app/services/reducers/services.slice';
 import teams from '@/app/teams/reducers/teams.slice';
+import { roadmaps } from '@/app/roadmaps/reducers/roadmaps.slice';
+import { contactUs } from '@/app/contact-us/reducers/contactUs.slice';
 
 const store = configureStore({
   reducer: {
@@ -20,6 +22,8 @@ const store = configureStore({
     about,
     services,
     teams,
+    roadmaps,
+    contactUs,
   },
   devTools: true,
 });

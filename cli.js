@@ -3,21 +3,21 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
 // Get the service name from the command line arguments
 const [, , serviceName] = process.argv;
 
 if (!serviceName) {
-  console.log("Please specify the service name.");
+  console.log('Please specify the service name.');
   process.exit(1);
 }
 
 // Define the paths
-const srcPath = path.join(__dirname, "src", "app");
+const srcPath = path.join(__dirname, 'src', 'app');
 const serviceFolderPath = path.join(srcPath, serviceName);
-const serviceReducerFolderPath = path.join(srcPath, serviceName, "reducers");
+const serviceReducerFolderPath = path.join(srcPath, serviceName, 'reducers');
 const serviceFilePath = path.join(
   serviceFolderPath,
   `${serviceName}.service.ts`
@@ -53,14 +53,22 @@ export default ${capitalizeFirstLetter(serviceName)}Service
 `;
 
 // Controller file template
-const controllerTemplate = `import  ${capitalizeFirstLetter(
+const controllerTemplate = `
+import  ${capitalizeFirstLetter(
   serviceName
 )}Service  from './${serviceName}.service';
+import  ${capitalizeFirstLetter(
+  serviceName
+)}ApiService  from './${serviceName}.api';
 
  class ${capitalizeFirstLetter(serviceName)}Controller {
-  constructor(private ${serviceName}Service: ${capitalizeFirstLetter(
+  constructor(
+    private ${serviceName}Service: ${capitalizeFirstLetter(serviceName)}Service,
+    private ${serviceName}ApiService: ${capitalizeFirstLetter(
   serviceName
-)}Service) {
+)}ApiService
+
+) {
     
   }
 
@@ -154,6 +162,7 @@ class ${capitalizeFirstLetter(serviceName)}Factory implements ModuleFactory {
   serviceName
 )}Controller(
       ${serviceName}Service,
+      new ${capitalizeFirstLetter(serviceName)}ApiService()
     );
     return {
       ${serviceName}Service,
@@ -164,7 +173,8 @@ class ${capitalizeFirstLetter(serviceName)}Factory implements ModuleFactory {
 export default ${capitalizeFirstLetter(serviceName)}Factory;
 
 `;
-const moduleTemplate = `import React, { createContext, useContext, useMemo } from "react";
+const moduleTemplate = ` 'use client'
+import React, { createContext, useContext, useMemo } from "react";
 
 
 
@@ -213,23 +223,23 @@ export default ${capitalizeFirstLetter(serviceName)}Module;
 
 `;
 // Write the service and controller files with the templates
-fs.writeFileSync(serviceFilePath, serviceTemplate, "utf8");
+fs.writeFileSync(serviceFilePath, serviceTemplate, 'utf8');
 console.log(`Created service file: ${serviceFilePath}`);
 
-fs.writeFileSync(controllerFilePath, controllerTemplate, "utf8");
+fs.writeFileSync(controllerFilePath, controllerTemplate, 'utf8');
 console.log(`Created controller file: ${controllerFilePath}`);
 
-fs.writeFileSync(reduxSlicePath, reduxSliceTemplate, "utf8");
+fs.writeFileSync(reduxSlicePath, reduxSliceTemplate, 'utf8');
 console.log(`Created reduxSlice file: ${controllerFilePath}`);
-fs.writeFileSync(interfacesPath, intefacesTemplate, "utf8");
+fs.writeFileSync(interfacesPath, intefacesTemplate, 'utf8');
 console.log(`Created interfaces file: ${interfacesPath}`);
 
-fs.writeFileSync(apiPath, apiTemplate, "utf8");
+fs.writeFileSync(apiPath, apiTemplate, 'utf8');
 console.log(`Created api file: ${apiPath}`);
 
-fs.writeFileSync(factoryPath, factoryTemplate, "utf8");
+fs.writeFileSync(factoryPath, factoryTemplate, 'utf8');
 console.log(`Created factory file: ${factoryPath}`);
-fs.writeFileSync(modulePath, moduleTemplate, "utf8");
+fs.writeFileSync(modulePath, moduleTemplate, 'utf8');
 console.log(`Created module file: ${modulePath}`);
 
 console.log(

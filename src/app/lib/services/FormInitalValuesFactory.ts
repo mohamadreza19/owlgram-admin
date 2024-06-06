@@ -2,7 +2,11 @@ import {
   FormikCreateAboutOwlgramBasedLanguageId,
   FormikCreatelanguage,
 } from '@/app/languages/interfaces';
-import { FormikCreate2, FormikCreate3 } from '../shared/interfaces';
+import {
+  FormikCreate2,
+  FormikCreate3,
+  FormikCreate4,
+} from '../shared/interfaces';
 
 class FormInitalValuesFactory {
   static createInitalValues1() {
@@ -37,6 +41,13 @@ class FormInitalValuesFactory {
       name: '',
       image: null,
       side: '',
+    };
+
+    return initialValues;
+  }
+  static createInitalValues5() {
+    const initialValues: FormikCreate4 = {
+      map: null,
     };
 
     return initialValues;

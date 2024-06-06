@@ -18,6 +18,7 @@ const CreateTeam: FunctionComponent<CreateTeamProps> = () => {
   const module = useTeamsInjection();
   const router = useRouter();
   const { id } = useParams<{ id: string }>();
+
   const formik = useFormik({
     initialValues: FormInitalValuesFactory.createInitalValues4(id),
     validationSchema: FormSchemaValidatorFactory.createSchema4(),

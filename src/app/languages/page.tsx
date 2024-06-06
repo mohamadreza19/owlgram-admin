@@ -143,11 +143,11 @@ const menu = [
     ],
   },
   {
-    header: 'Downloads',
+    header: 'Contact Us',
     section: [
       {
-        text: 'Add',
-        baseHref: '/languages/create-service/',
+        text: 'show',
+        baseHref: '/contact-us/',
       },
     ],
   },

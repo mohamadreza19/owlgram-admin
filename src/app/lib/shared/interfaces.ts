@@ -75,3 +75,11 @@ export interface FormikCreate3 {
   image: File | null;
   side: string;
 }
+export interface FormikCreate4 {
+  map: File | null;
+}
+export type SocialNetworks = {
+  icon: string;
+  title: string;
+  id: string;
+};

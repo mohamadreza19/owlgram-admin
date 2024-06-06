@@ -1,4 +1,4 @@
-import React, { ElementType } from "react";
+import React, { ElementType } from 'react';
 import {
   cilBell,
   cilCalculator,
@@ -17,9 +17,9 @@ import {
   cilSpreadsheet,
   cilStar,
   cilLanguage,
-} from "@coreui/icons";
-import CIcon from "@coreui/icons-react";
-import { CNavGroup, CNavItem, CNavTitle } from "@coreui/react-pro";
+} from '@coreui/icons';
+import CIcon from '@coreui/icons-react';
+import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react-pro';
 
 export type Badge = {
   color: string;
@@ -38,28 +38,42 @@ export type NavItem = {
 const _nav = [
   {
     component: CNavItem,
-    name: "Dashboard",
+    name: 'Dashboard',
     icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
     badge: {
-      color: "info-gradient",
-      text: "NEW",
+      color: 'info-gradient',
+      text: 'NEW',
     },
-    href: "/",
+    href: '/',
   },
   {
     component: CNavTitle,
-    name: "Languages",
+    name: 'Languages',
   },
   {
     component: CNavItem,
-    name: "Create",
-    href: "/languages/create",
+    name: 'Create',
+    href: '/languages/create',
   },
   {
     component: CNavItem,
-    name: "Languages List",
-    href: "/languages",
+    name: 'Languages List',
+    href: '/languages',
     // icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavTitle,
+    name: 'Road Maps',
+  },
+  {
+    component: CNavItem,
+    name: 'Road Maps List',
+    href: '/roadmaps',
+  },
+  {
+    component: CNavItem,
+    name: 'Create Road Map',
+    href: '/roadmaps/create',
   },
 ];
 

@@ -51,6 +51,18 @@ class FormSchemaValidatorFactory {
       side: Yup.string().required('Required'),
     });
   }
+  static createSchema5() {
+    const fileSchema = Yup.mixed()
+      .test('fileSize', 'File size is too large', (value) => {
+        const val = value as File;
+        return val && val.size <= 5 * 1024 * 1024; // 5 MB limit
+      })
+      .required();
+
+    return Yup.object({
+      map: fileSchema,
+    });
+  }
 }
 
 export default FormSchemaValidatorFactory;
