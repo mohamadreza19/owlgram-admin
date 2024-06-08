@@ -1,9 +1,9 @@
-import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
-import FilesApiService from '../files/files.api';
-import { FormikCreate4 } from '../lib/shared/interfaces';
-import RoadmapsApiService from './roadmaps.api';
-import RoadmapsService from './roadmaps.service';
-import { AlertService } from '../lib/services';
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import FilesApiService from "../files/files.api";
+import { FormikCreate4 } from "../lib/shared/interfaces";
+import RoadmapsApiService from "./roadmaps.api";
+import RoadmapsService from "./roadmaps.service";
+import { AlertService } from "../lib/services";
 
 class RoadmapsController {
   constructor(
@@ -24,12 +24,12 @@ class RoadmapsController {
 
       await this.roadmapsApiService.postRoadmaps({ map: result });
 
-      this.router.push('/roadmaps');
+      this.router.push("/roadmaps");
 
       this.alertService.addDismissAlert({
         open: true,
-        type: 'success',
-        message: 'Roadmap add successful',
+        type: "success",
+        message: "Roadmap add successful",
       });
     }
   };

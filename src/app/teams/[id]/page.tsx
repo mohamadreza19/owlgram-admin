@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import {
   CBadge,
   CButton,
@@ -7,35 +7,14 @@ import {
   CCollapse,
   CRow,
   CSmartTable,
-} from '@coreui/react-pro';
-import { FunctionComponent, useEffect, useState } from 'react';
-import type { Item } from '@coreui/react-pro/dist/components/smart-table/CSmartTableInterface';
-import { useTeamsInjection } from '../teams.module';
-import { useParams, useRouter } from 'next/navigation';
-import Image from 'next/image';
+} from "@coreui/react-pro";
+import { FunctionComponent, useEffect, useState } from "react";
+import type { Item } from "@coreui/react-pro/dist/components/smart-table/CSmartTableInterface";
+import { useTeamsInjection } from "../teams.module";
+import { useParams, useRouter } from "next/navigation";
+import Image from "next/image";
+import NotContentFound from "@/app/lib/components/NotContentFound";
 interface GetTeamByIdProps {}
-const usersData = [
-  {
-    name: 'kjhkjh',
-    image: '',
-    side: 'jhkjhk',
-  },
-  {
-    name: 'hgghg',
-    image: 'https://owlegram.com:2053/public/team/1716893050616.jpg',
-    side: 'df',
-  },
-  {
-    name: 'dsdfs',
-    image: 'https://owlegram.com:2053/public/ ',
-    side: 'ssdd',
-  },
-  {
-    name: 'jessy',
-    image: 'https://owlegram.com:2053/public/team/1717575008314.webp',
-    side: 'user',
-  },
-];
 
 const GetTeamById: FunctionComponent<GetTeamByIdProps> = () => {
   const { id } = useParams<{ id: string }>();
@@ -50,7 +29,7 @@ const GetTeamById: FunctionComponent<GetTeamByIdProps> = () => {
       module.teamsController.handleSetTeamByLanguageId(id);
     }
   }, [id]);
-
+  if (!teams.length) return <NotContentFound />;
   return (
     <div className="container">
       <CRow>

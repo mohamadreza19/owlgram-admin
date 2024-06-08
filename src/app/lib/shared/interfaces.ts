@@ -1,5 +1,5 @@
-import { ButtonHTMLAttributes, ReactNode, SetStateAction } from 'react';
-import { RootState } from '../services/store';
+import { ButtonHTMLAttributes, ReactNode, SetStateAction } from "react";
+import { RootState } from "../services/store";
 
 export interface ModuleProps {
   children: ReactNode;
@@ -15,7 +15,7 @@ export type SetHasNextPage = (value: SetStateAction<boolean>) => void;
 export type SetSearch = (value: SetStateAction<string>) => void;
 
 export interface ApiCallStatus {
-  status: 'success' | 'error' | 'idle' | 'loading';
+  status: "success" | "error" | "idle" | "loading";
 
   error?: {
     statusCode: number;
@@ -42,9 +42,9 @@ export enum AxiosErrorStatus {
 //   None = "",
 // }
 export enum CategoriseSegment {
-  'mobile' = 'mobile',
-  'electronic-devices' = 'electronic-devices',
-  'book-and-media' = 'book-and-media',
+  "mobile" = "mobile",
+  "electronic-devices" = "electronic-devices",
+  "book-and-media" = "book-and-media",
 }
 
 export type CategoriseSegmentValues = keyof typeof CategoriseSegment;
@@ -78,7 +78,38 @@ export interface FormikCreate3 {
 export interface FormikCreate4 {
   map: File | null;
 }
-export type SocialNetworks = {
+export interface FormikCreate5 {
+  address: string;
+  tel: string;
+  lat: string;
+  long: string;
+  language_id: string;
+  socialNetworks: SocialNetworkLink[];
+}
+export interface FormikCreate6 {
+  product: string;
+  os_name: string;
+  link: string;
+  language_id: string;
+  image: File | null;
+}
+export interface FormikCreate7 {
+  email: string;
+  subject: string;
+  content: string;
+  department_id: string;
+  file: File | null;
+}
+export interface FormikCreate8 {
+  question : string;
+  answer : string;
+  language_id : string;
+}
+export type SocialNetworkLink = {
+  social_id: string;
+  link: string;
+};
+export type SocialNetwork = {
   icon: string;
   title: string;
   id: string;

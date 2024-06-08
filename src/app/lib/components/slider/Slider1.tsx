@@ -14,7 +14,6 @@ interface Slider1Props {
 }
 
 const Slider1: FC<Slider1Props> = (props) => {
-  console.log(props);
   return (
     <Swiper
       modules={[Pagination]}

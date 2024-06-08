@@ -12,6 +12,7 @@ import { AboutOwlgram } from "../../languages/interfaces";
 import { Slider1 } from "@/app/lib/components/slider";
 import { Card1 } from "@/app/lib/components/card";
 import { useAboutInjection } from "../about.module";
+import NotContentFound from "@/app/lib/components/NotContentFound";
 
 interface FlagProps {}
 
@@ -25,13 +26,15 @@ const Flag: FunctionComponent<FlagProps> = () => {
     }
   }, [id]);
 
-  return (
-    <div className="w-[300px] container grid grid-cols-1 gap-y-5 pb-3">
-      {aboutOwlgram.map((item, i) => (
-        <Card1 key={i} {...item} />
-      ))}
-    </div>
-  );
+  if (!aboutOwlgram.length) return <NotContentFound />;
+  else
+    return (
+      <div className="w-[300px] container grid grid-cols-1 gap-y-5 pb-3">
+        {aboutOwlgram.map((item, i) => (
+          <Card1 key={i} {...item} />
+        ))}
+      </div>
+    );
 };
 
 export default Flag;

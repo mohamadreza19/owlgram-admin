@@ -1,7 +1,8 @@
-'use client';
-import { FunctionComponent, useEffect } from 'react';
-import { useRoadmapsInjection } from './roadmaps.module';
-import { Card1, Card2 } from '../lib/components/card';
+"use client";
+import { FunctionComponent, useEffect } from "react";
+import { useRoadmapsInjection } from "./roadmaps.module";
+import { Card1, Card2 } from "../lib/components/card";
+import NotContentFound from "../lib/components/NotContentFound";
 
 interface RoadmapsProps {}
 
@@ -12,6 +13,7 @@ const Roadmaps: FunctionComponent<RoadmapsProps> = () => {
   useEffect(() => {
     module.roadmapsController.handleFetchRoadmaps();
   }, []);
+  if (!roadmaps.length) return <NotContentFound />;
   return (
     <div className="container grid gap-3  md:grid-cols-3  grid-cols-12">
       {roadmaps.map((roadmap, index) => (

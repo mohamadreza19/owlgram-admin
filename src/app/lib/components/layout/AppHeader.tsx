@@ -59,10 +59,10 @@ const AppHeader = (props: AppHeaderProps): JSX.Element => {
         <CHeaderToggler className="ps-1" onClick={props.toggleSideBar}>
           <CIcon icon={cilMenu} size="lg" />
         </CHeaderToggler>
-        <CHeaderBrand className="mx-auto d-md-none" href="/">
+        {/* <CHeaderBrand className="mx-auto d-md-none" href="/">
           <CIcon icon={logo} height={48} />
-        </CHeaderBrand>
-        <CHeaderNav className="d-none d-md-flex me-auto">
+        </CHeaderBrand> */}
+        {/* <CHeaderNav className="d-none d-md-flex me-auto">
           <CNavItem>
             <CNavLink href="/" component={Link}>
               Dashboard
@@ -74,8 +74,8 @@ const AppHeader = (props: AppHeaderProps): JSX.Element => {
           <CNavItem>
             <CNavLink href="#">Settings</CNavLink>
           </CNavItem>
-        </CHeaderNav>
-        <CHeaderNav className="ms-auto me-4">
+        </CHeaderNav> */}
+        {/* <CHeaderNav className="ms-auto me-4">
           <CButtonGroup aria-label="Theme switch">
             <CFormCheck
               type="radio"
@@ -98,21 +98,21 @@ const AppHeader = (props: AppHeaderProps): JSX.Element => {
               onChange={() => dispatch({ type: "set", theme: "dark" })}
             />
           </CButtonGroup>
-        </CHeaderNav>
-        <CHeaderNav>
+        </CHeaderNav> */}
+        {/* <CHeaderNav>
           <AppHeaderDropdownNotif />
           <AppHeaderDropdownTasks />
           <AppHeaderDropdownMssg />
-        </CHeaderNav>
+        </CHeaderNav> */}
         <CHeaderNav className="ms-3 me-4">
           <AppHeaderDropdown />
         </CHeaderNav>
-        <CHeaderToggler
+        {/* <CHeaderToggler
           className="px-md-0 me-md-3"
           onClick={() => dispatch({ type: "set", asideShow: !asideShow })}
         >
           <CIcon icon={cilApplicationsSettings} size="lg" />
-        </CHeaderToggler>
+        </CHeaderToggler> */}
       </CContainer>
       <CHeaderDivider />
       <CContainer fluid>

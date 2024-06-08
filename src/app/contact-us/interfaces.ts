@@ -1,12 +1,15 @@
-import ContactUsService from './contactUs.service';
-import ContactUsController from './contactUs.controller';
-import { SocialNetworks } from '../lib/shared/interfaces';
+import ContactUsService from "./contactUs.service";
+import ContactUsController from "./contactUs.controller";
+
 export type ContactUs = {
   address: string;
   tel: string;
   lat: string;
   long: string;
-  social_networks: SocialNetworks[];
+  social_networks: {
+    social_id: string;
+    link: string;
+  }[];
 };
 export type ContactUsResponse = ContactUs[];
 

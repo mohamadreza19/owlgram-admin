@@ -76,3 +76,6 @@ a {
   visibility: visible;
   opacity: 1;
 }
+p {
+  margin: 0 !important;
+}
