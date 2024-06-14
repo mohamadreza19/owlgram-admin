@@ -7,11 +7,11 @@ import NotContentFound from "../lib/components/NotContentFound";
 interface RoadmapsProps {}
 
 const Roadmaps: FunctionComponent<RoadmapsProps> = () => {
-  const module = useRoadmapsInjection();
-  const roadmaps = module.roadmapsService.getRoadmaps(true);
+  const { roadmapsService, roadmapsController } = useRoadmapsInjection();
+  const roadmaps = roadmapsService.getRoadmaps(true);
   console.log(roadmaps);
   useEffect(() => {
-    module.roadmapsController.handleFetchRoadmaps();
+    roadmapsController.handleFetchRoadmaps();
   }, []);
   if (!roadmaps.length) return <NotContentFound />;
   return (

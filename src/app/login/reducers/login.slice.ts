@@ -1,19 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { LoginResponse } from "../interfaces";
-const initialState:LoginResponse = {
-   
-  };
+const initialState = {};
 
 const loginSlice = createSlice({
   name: "login",
   initialState,
   reducers: {
-    add(state,action){
-
-    },
-    remove(state,action){
-
-    }
+    add(state, action) {},
+    remove(state, action) {},
   },
 });
 

@@ -1,10 +1,8 @@
-
-
 import SocialNetworksService from "./socialNetworks.service";
 import SocialNetworksController from "./socialNetworks.controller";
 import SocialNetworksApiService from "./socialNetworks.api";
 import { SocialNetworksInjectionEntities } from "./interfaces";
-
+import { ModuleFactory } from "../lib/shared/interfaces";
 
 class SocialNetworksFactory implements ModuleFactory {
   static createInstances(): SocialNetworksInjectionEntities {
@@ -20,4 +18,3 @@ class SocialNetworksFactory implements ModuleFactory {
   }
 }
 export default SocialNetworksFactory;
-

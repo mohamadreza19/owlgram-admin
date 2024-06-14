@@ -1,25 +1,25 @@
-'use client';
-import { Error1 } from '@/app/lib/components/form';
-import FileInput from '@/app/lib/components/form/InputFile1';
+"use client";
+import { Error1 } from "@/app/lib/components/form";
+import FileInput from "@/app/lib/components/form/InputFile1";
 import {
   FormInitalValuesFactory,
   FormSchemaValidatorFactory,
-} from '@/app/lib/services';
-import { CButton } from '@coreui/react-pro';
-import { useFormik } from 'formik';
-import { FunctionComponent } from 'react';
-import { useRoadmapsInjection } from '../roadmaps.module';
+} from "@/app/lib/services";
+import { CButton } from "@coreui/react-pro";
+import { useFormik } from "formik";
+import { FunctionComponent } from "react";
+import { useRoadmapsInjection } from "../roadmaps.module";
 
 interface CreateRoadmapProps {}
 
 const CreateRoadmap: FunctionComponent<CreateRoadmapProps> = () => {
-  const module = useRoadmapsInjection();
+  const { roadmapsController, roadmapsService } = useRoadmapsInjection();
   const formik = useFormik({
     initialValues: FormInitalValuesFactory.createInitalValues5(),
     validationSchema: FormSchemaValidatorFactory.createSchema5(),
 
     onSubmit: (values) => {
-      module.roadmapsController.handleCreateRoadmap(values);
+      roadmapsController.handleCreateRoadmap(values);
     },
   });
 
@@ -32,7 +32,7 @@ const CreateRoadmap: FunctionComponent<CreateRoadmapProps> = () => {
           name="map"
           onChange={(e) => {
             if (e.target.files?.length) {
-              formik.setFieldValue('map', e.target.files[0]);
+              formik.setFieldValue("map", e.target.files[0]);
             }
           }}
         />

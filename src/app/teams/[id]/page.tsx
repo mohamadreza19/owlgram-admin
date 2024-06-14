@@ -18,15 +18,15 @@ interface GetTeamByIdProps {}
 
 const GetTeamById: FunctionComponent<GetTeamByIdProps> = () => {
   const { id } = useParams<{ id: string }>();
-  const module = useTeamsInjection();
-  const teams = module.teamsService.getTeams(true);
+  const { teamsController, teamsService } = useTeamsInjection();
+  const teams = teamsService.getTeams(true);
   const router = useRouter();
 
   useEffect(() => {
     if (!Number(id)) return router.back();
 
     if (id) {
-      module.teamsController.handleSetTeamByLanguageId(id);
+      teamsController.handleSetTeamByLanguageId(id);
     }
   }, [id]);
   if (!teams.length) return <NotContentFound />;

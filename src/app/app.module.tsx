@@ -1,19 +1,19 @@
-'use client';
+"use client";
 import React, {
   createContext,
   useContext,
   useEffect,
   useLayoutEffect,
   useMemo,
-} from 'react';
+} from "react";
 
-import AppFactory from './app.factory';
-import { AppInjectionEntities } from './interfaces';
-import { usePathname, useRouter } from 'next/navigation';
-import { LoadingService } from '@lib/services';
-import { MainNavbar } from '@lib/components/navbar';
-import AppHeader from '@lib/components/layout/AppHeader';
-import AppSidebar from '@lib/components/layout/AppSidebar';
+import AppFactory from "./app.factory";
+import { AppInjectionEntities } from "./interfaces";
+import { usePathname, useRouter } from "next/navigation";
+import { LoadingService } from "@lib/services";
+
+import AppHeader from "@lib/components/layout/AppHeader";
+import AppSidebar from "@lib/components/layout/AppSidebar";
 
 const InjectionContext = createContext({});
 
@@ -41,12 +41,12 @@ function AppModule({ children }: { children: React.ReactNode }) {
 
   return (
     <InjectionContext.Provider value={memorizedModlue}>
-      {!pathName.includes('login') && (
+      {!pathName.includes("login") && (
         <AppSidebar isSidebarOpen={isSidebarOpen} />
       )}
 
-      <main className={`${isSidebarOpen && 'ms-[256px]'}`}>
-        {!pathName.includes('login') && (
+      <main className={`${isSidebarOpen && "ms-[256px]"}`}>
+        {!pathName.includes("login") && (
           <AppHeader
             toggleSideBar={memorizedModlue.themeService.toggleSideBar}
           />

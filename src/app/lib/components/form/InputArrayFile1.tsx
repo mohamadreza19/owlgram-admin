@@ -32,7 +32,7 @@ const InputArrayFile1: React.FC<InputArrayFile1Props> = ({
 
   return (
     <div className=" h-11 max-h-11 flex items-center p-1  w-full  text-sm text-gray-900 border border-gray-300 rounded-[.25rem]  bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
-      <Button1 onClick={clickHiddenInput} children="Choose file" />
+      <Button1 onClick={clickHiddenInput}>Choose file</Button1>
       <input
         type="file"
         name={name}
@@ -44,7 +44,10 @@ const InputArrayFile1: React.FC<InputArrayFile1Props> = ({
       <div className=" ms-1 text-sm flex gap-x-1 scrollbar-hide overflow-x-auto overflow-y-hidden whitespace-nowrap text-gray-500 dark:text-gray-300">
         {files.map((file, index) => {
           return (
-            <div className="flex p-2 bg-white border border-gray-500 border-solid rounded">
+            <div
+              key={index}
+              className="flex p-2 bg-white border border-gray-500 border-solid rounded"
+            >
               {file.name}
               <IoClose
                 onClick={() => {

@@ -1,19 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { FilesResponse } from "../interfaces";
-const initialState:FilesResponse = {
-   
-  };
+
+const initialState = {};
 
 const filesSlice = createSlice({
   name: "files",
   initialState,
   reducers: {
-    add(state,action){
-
-    },
-    remove(state,action){
-
-    }
+    add(state, action) {},
+    remove(state, action) {},
   },
 });
 

@@ -2,6 +2,6 @@
 import { ReactNode } from "react";
 import ConnectUsModule from "./connectUs.module";
 
-export default ({ children }: { children: ReactNode }) => (
-  <ConnectUsModule>{children}</ConnectUsModule>
-);
+export default function Layout({ children }: { children: ReactNode }) {
+  return <ConnectUsModule>{children}</ConnectUsModule>;
+}

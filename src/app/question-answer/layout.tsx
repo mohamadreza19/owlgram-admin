@@ -2,6 +2,6 @@
 import { ReactNode } from "react";
 import QuestionAnswerModule from "./questionAnswer.module";
 
-export default ({ children }: { children: ReactNode }) => (
-  <QuestionAnswerModule>{children}</QuestionAnswerModule>
-);
+export default function Layout({ children }: { children: ReactNode }) {
+  return <QuestionAnswerModule>{children}</QuestionAnswerModule>;
+}

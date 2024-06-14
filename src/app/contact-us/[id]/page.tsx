@@ -18,13 +18,13 @@ const ContactById: FunctionComponent = () => {
     []
   );
   const iconBase = "https://owlegram.com:2053/public/social_networks/instg.jpg";
-  const module = useContactUsInjection();
-  const contactUs = module.contactUsService.getContactUs(true);
+  const { contactUsController, contactUsService } = useContactUsInjection();
+  const contactUs = contactUsService.getContactUs(true);
 
   useEffect(() => {
-    module.contactUsController.getContactBasedLanguageId(id);
+    contactUsController.getContactBasedLanguageId(id);
 
-    module.contactUsController.getSocialNetworks().then((val) => {
+    contactUsController.getSocialNetworks().then((val) => {
       setSocialNetworks(val);
     });
   }, []);

@@ -1,1 +1,1 @@
-export { default as AuthApiService } from "./AuthApiService";
+export { default as AuthApiService } from "./ApiService";

@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
-  // output: "export",
+  // output: "",
 
   // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
   // trailingSlash: true,

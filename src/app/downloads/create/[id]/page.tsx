@@ -15,13 +15,13 @@ import { CButton } from "@coreui/react-pro";
 interface CreateProps {}
 
 const Create: FunctionComponent<CreateProps> = () => {
-  const module = useDownloadsInjection();
+  const { downloadsController, downloadsService } = useDownloadsInjection();
   const { id } = useParams<{ id: string }>();
 
   const formik = useFormik({
     initialValues: FormInitalValuesFactory.createInitalValues7(id),
     validationSchema: FormSchemaValidatorFactory.createSchema7(),
-    onSubmit: module.downloadsController.handleCreateDownloadsByLanguageId,
+    onSubmit: downloadsController.handleCreateDownloadsByLanguageId,
     enableReinitialize: true,
   });
   console.log(formik.errors);

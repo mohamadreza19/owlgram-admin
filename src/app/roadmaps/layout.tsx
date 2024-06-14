@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { ReactNode } from 'react';
-import RoadmapsModule from './roadmaps.module';
+import { ReactNode } from "react";
+import RoadmapsModule from "./roadmaps.module";
 
-export default ({ children }: { children: ReactNode }) => (
-  <RoadmapsModule>{children}</RoadmapsModule>
-);
+export default function Layout({ children }: { children: ReactNode }) {
+  return <RoadmapsModule>{children}</RoadmapsModule>;
+}

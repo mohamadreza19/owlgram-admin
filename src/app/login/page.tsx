@@ -30,11 +30,11 @@ const initialValues: LoginPostBody = {
   password: "",
 };
 const Login = () => {
-  const module = useLoginInjection();
+  const { loginController, loginService } = useLoginInjection();
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: module.loginController.handleLogin,
+    onSubmit: loginController.handleLogin,
   });
 
   return (
@@ -118,8 +118,10 @@ const Login = () => {
   );
 };
 
-export default () => (
-  <LoginModule>
-    <Login />
-  </LoginModule>
-);
+export default function LoginLayout() {
+  return (
+    <LoginModule>
+      <Login />
+    </LoginModule>
+  );
+}

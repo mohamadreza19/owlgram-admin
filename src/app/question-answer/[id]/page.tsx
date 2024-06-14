@@ -8,17 +8,16 @@ import NotContentFound from "@/app/lib/components/NotContentFound";
 interface PageProps {}
 
 const Page: FunctionComponent<PageProps> = () => {
-  const module = useQuestionAnswerInjection();
-  const questionAnswers = module.questionAnswerService.getQuestionAnswer(true);
+  const { questionAnswerController, questionAnswerService } =
+    useQuestionAnswerInjection();
+  const questionAnswers = questionAnswerService.getQuestionAnswer(true);
   const { id } = useParams<{
     id: string;
   }>();
 
   useEffect(() => {
     if (id)
-      module.questionAnswerController.handleFetchQuestionAnswersBasedLanguageId(
-        id
-      );
+      questionAnswerController.handleFetchQuestionAnswersBasedLanguageId(id);
   }, [id]);
   if (!questionAnswers.length) return <NotContentFound />;
   return (

@@ -1,7 +1,8 @@
 import GlobalStoreService from "@lib/services/GlobalStoreService";
 import { InjectUseSelect } from "@lib/shared";
-import { UseSelectMethod } from "../lib/shared/decorators/InjectUseSelect";
-import { themeSliceActions } from "../lib/features/theme/theme";
+
+import { themeSliceActions } from "@lib/features/theme/theme";
+import { UseSelectMethod } from "@lib/shared/interfaces";
 @InjectUseSelect("theme")
 class ThemeService extends GlobalStoreService {
   private useSelect!: UseSelectMethod<"theme">;

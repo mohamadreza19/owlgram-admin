@@ -1,6 +1,6 @@
- class SocialNetworksService extends GlobalStoreService  {
-  
+import GlobalStoreService from "../lib/services/GlobalStoreService";
 
+class SocialNetworksService extends GlobalStoreService {
   // Add service methods here
 }
-export default SocialNetworksService
+export default SocialNetworksService;

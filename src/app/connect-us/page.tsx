@@ -7,11 +7,11 @@ import NotContentFound from "../lib/components/NotContentFound";
 interface ConnectUsProps {}
 
 const ConnectUs: FunctionComponent<ConnectUsProps> = () => {
-  const module = useConnectUsInjection();
-  const connectUs = module.connectUsService.getConnectUs(true);
+  const { connectUsController, connectUsService } = useConnectUsInjection();
+  const connectUs = connectUsService.getConnectUs(true);
 
   useEffect(() => {
-    module.connectUsController.fetchConnectUs();
+    connectUsController.fetchConnectUs();
   }, []);
   if (!connectUs.length) return <NotContentFound />;
   return (

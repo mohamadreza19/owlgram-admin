@@ -89,8 +89,8 @@ const languages = [
 ];
 
 const Languages: FunctionComponent<LanguagesProps> = () => {
-  const module = useLanguagesInjection();
-  const languages = module.languagesService.getLanguages(true);
+  const { languagesController, languagesService } = useLanguagesInjection();
+  const languages = languagesService.getLanguages(true);
   return (
     <div className="container">
       <div className=" grid lg:grid-cols-4  md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-3">

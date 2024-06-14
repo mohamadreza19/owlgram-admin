@@ -14,7 +14,7 @@ import { CButton } from "@coreui/react-pro";
 interface CreateProps {}
 
 const Create: FunctionComponent<CreateProps> = () => {
-  const module = useQuestionAnswerInjection();
+  const { questionAnswerController } = useQuestionAnswerInjection();
   const { id } = useParams<{
     id: string;
   }>();
@@ -23,7 +23,7 @@ const Create: FunctionComponent<CreateProps> = () => {
     initialValues: FormInitalValuesFactory.createInitalValues9(id),
     validationSchema: FormSchemaValidatorFactory.createSchema9(),
     enableReinitialize: true,
-    onSubmit: module.questionAnswerController.handleCreateQuestionAnswers,
+    onSubmit: questionAnswerController.handleCreateQuestionAnswers,
   });
   return (
     <form onSubmit={formik.handleSubmit} className="container">

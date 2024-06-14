@@ -108,14 +108,14 @@ const Create: FunctionComponent<CreateProps> = () => {
               }}
             />
             {Array.isArray(formik.errors.socialNetworks) &&
-              formik.errors.socialNetworks.map((item) => {
+              formik.errors.socialNetworks.map((item, i) => {
                 const index = (item.link as string)[0];
                 if (index === socialNetwork.id) {
                   const newMessage = (item.link as string).replace(
                     index,
                     socialNetwork.title + " "
                   );
-                  return <Error1 error={newMessage} />;
+                  return <Error1 key={i} error={newMessage} />;
                 }
               })}
             {/* {formik.errors.socialNetworks?.length && (

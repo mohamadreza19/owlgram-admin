@@ -8,14 +8,14 @@ import NotContentFound from "@/app/lib/components/NotContentFound";
 interface GetByIdProps {}
 
 const GetById: FunctionComponent<GetByIdProps> = () => {
-  const module = useDownloadsInjection();
-  const downloads = module.downloadsService.getDownloads(true);
+  const { downloadsController, downloadsService } = useDownloadsInjection();
+  const downloads = downloadsService.getDownloads(true);
   const { id } = useParams<{
     id: string;
   }>();
 
   useEffect(() => {
-    if (id) module.downloadsController.handleFetchDownloadsByLanguageId(id);
+    if (id) downloadsController.handleFetchDownloadsByLanguageId(id);
   }, [id]);
   if (!downloads.length) return <NotContentFound />;
   return (

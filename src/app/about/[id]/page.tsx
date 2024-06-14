@@ -17,12 +17,12 @@ import NotContentFound from "@/app/lib/components/NotContentFound";
 interface FlagProps {}
 
 const Flag: FunctionComponent<FlagProps> = () => {
-  const module = useAboutInjection();
-  const aboutOwlgram = module.aboutService.getAboutLanguage(true);
+  const { aboutController, aboutService } = useAboutInjection();
+  const aboutOwlgram = aboutService.getAboutLanguage(true);
   const { id } = useParams<{ id: string }>();
   useEffect(() => {
     if (id) {
-      module.aboutController.handleFetchAboutLanguageById(id);
+      aboutController.handleFetchAboutLanguageById(id);
     }
   }, [id]);
 

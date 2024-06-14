@@ -23,8 +23,8 @@ const Slider1: FC<Slider1Props> = (props) => {
       onSlideChange={() => console.log("slide change")}
       // onSwiper={(swiper) => console.log(swiper)}
     >
-      {props.media.map((m) => (
-        <SwiperSlide className="w-full !h-56">
+      {props.media.map((m, index) => (
+        <SwiperSlide key={index} className="w-full !h-56">
           <div className="w-full !h-full">
             <Image
               width={300}

@@ -17,23 +17,22 @@ import FileInput from "@/app/lib/components/form/InputFile1";
 interface CreateProps {}
 
 const Create: FunctionComponent<CreateProps> = () => {
-  const module = useConnectUsInjection();
+  const { connectUsController, connectUsService } = useConnectUsInjection();
 
-  const departments = module.connectUsService.getDepartments(true);
+  const departments = connectUsService.getDepartments(true);
   const { id } = useParams<{
     id: string;
   }>();
   const formik = useFormik({
     initialValues: FormInitalValuesFactory.createInitalValues8(""),
     validationSchema: FormSchemaValidatorFactory.createSchema8(),
-    onSubmit: module.connectUsController.handleCreateConnectUs,
+    onSubmit: connectUsController.handleCreateConnectUs,
 
     enableReinitialize: true,
   });
 
   useEffect(() => {
-    if (id)
-      module.connectUsController.handleFetchDepartmentsBasedLanguageId(id);
+    if (id) connectUsController.handleFetchDepartmentsBasedLanguageId(id);
   }, [id]);
   return (
     <form onSubmit={formik.handleSubmit} className="container">

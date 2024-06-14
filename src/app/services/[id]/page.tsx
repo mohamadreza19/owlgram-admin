@@ -11,12 +11,12 @@ import NotContentFound from "@/app/lib/components/NotContentFound";
 interface FlagProps {}
 
 const Flag: FunctionComponent<FlagProps> = () => {
-  const module = useServicesInjection();
-  const services = module.servicesService.getServices(true);
+  const { servicesController, servicesService } = useServicesInjection();
+  const services = servicesService.getServices(true);
   const { id } = useParams<{ id: string }>();
   useEffect(() => {
     if (id) {
-      module.servicesController.handleFetchServiceBasedLanguageId(id);
+      servicesController.handleFetchServiceBasedLanguageId(id);
     }
   }, [id]);
   if (!services.length) return <NotContentFound />;
