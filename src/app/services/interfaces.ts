@@ -6,6 +6,11 @@ export type Service = {
   media: string;
 };
 export type GetServiceResponse = Service[];
+export type CreateService = {
+  content: string;
+  language_id: string;
+  media: string;
+};
 
 export interface ServicesInjectionEntities {
   servicesService: ServicesService;
