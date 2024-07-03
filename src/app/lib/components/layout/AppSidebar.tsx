@@ -22,7 +22,8 @@ import navigation from "../_nav";
 interface AppSidebarProps {
   isSidebarOpen: boolean;
 }
-
+import owlgramLogo from "/public/main-logo.svg";
+import Image from "next/image";
 const AppSidebar = (props: AppSidebarProps): JSX.Element => {
   const dispatch = useDispatch();
   // const unfoldable = useTypedSelector((state) => state.sidebarUnfoldable)
@@ -35,13 +36,14 @@ const AppSidebar = (props: AppSidebarProps): JSX.Element => {
         unfoldable={false}
         visible={props.isSidebarOpen}
       >
-        <CSidebarBrand className="d-none d-md-flex">
-          <CIcon
-            className="sidebar-brand-full"
-            icon={logoNegative}
-            height={35}
+        <CSidebarBrand className="d-none d-md-flex flex ">
+          <Image
+            src={owlgramLogo.src}
+            width={40}
+            height={40}
+            alt="owlgramLogo"
           />
-          <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
+          <p className="text-xl text-white font-bold ms-1"> ADMIN</p>
         </CSidebarBrand>
         <CSidebarNav>
           <SimpleBar>

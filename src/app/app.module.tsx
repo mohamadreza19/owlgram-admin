@@ -45,7 +45,7 @@ function AppModule({ children }: { children: React.ReactNode }) {
         <AppSidebar isSidebarOpen={isSidebarOpen} />
       )}
 
-      <main className={`${isSidebarOpen && "ms-[256px]"}`}>
+      <main className={`${isSidebarOpen && "ms-[256px]"} background2`}>
         {!pathName.includes("login") && (
           <AppHeader
             toggleSideBar={memorizedModlue.themeService.toggleSideBar}

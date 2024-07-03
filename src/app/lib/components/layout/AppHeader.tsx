@@ -105,7 +105,7 @@ const AppHeader = (props: AppHeaderProps): JSX.Element => {
           <AppHeaderDropdownMssg />
         </CHeaderNav> */}
         <CHeaderNav className="ms-3 me-4">
-          <AppHeaderDropdown />
+          {/* <AppHeaderDropdown /> */}
         </CHeaderNav>
         {/* <CHeaderToggler
           className="px-md-0 me-md-3"

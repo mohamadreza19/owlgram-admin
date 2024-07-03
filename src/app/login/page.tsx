@@ -20,6 +20,9 @@ import { Formik, useFormik } from "formik";
 import LoginModule, { useLoginInjection } from "./login.module";
 import { LoginPostBody } from "./interfaces";
 
+import owlgramLogo from "/public/main-logo.svg";
+import Image from "next/image";
+
 const validationSchema = Yup.object({
   username: Yup.string().required("Required"),
   password: Yup.string().required("Required"),
@@ -38,7 +41,7 @@ const Login = () => {
   });
 
   return (
-    <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
+    <div className=" min-vh-100 d-flex flex-row align-items-center background1">
       <CContainer>
         <CRow className="justify-content-center">
           <CCol md={8}>
@@ -47,8 +50,8 @@ const Login = () => {
                 <CCardBody>
                   <CForm>
                     <h1>Login</h1>
-                    <p className="text-medium-emphasis">Sign In As Admin</p>
-                    <CInputGroup className="pb-4 relative">
+
+                    <CInputGroup className="py-4 relative">
                       <CInputGroupText>
                         <CIcon icon={cilUser} />
                       </CInputGroupText>
@@ -85,7 +88,7 @@ const Login = () => {
                         <CButton
                           onClick={formik.submitForm}
                           color="primary"
-                          className="px-4"
+                          className="px-4 mt-4"
                         >
                           Login
                         </CButton>
@@ -94,22 +97,22 @@ const Login = () => {
                   </CForm>
                 </CCardBody>
               </CCard>
-              {/* <CCard className="text-white bg-primary py-5" style={{ width: '44%' }}>
-                <CCardBody className="text-center">
-                  <div>
-                    <h2>Sign up</h2>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-                    <Link href="/register">
-                      <CButton color="primary" className="mt-3" active tabIndex={-1}>
-                        Register Now!
-                      </CButton>
-                    </Link>
-                  </div>
-                </CCardBody>
-              </CCard> */}
+              <CCard
+                className="text-white  py-5 flex flex-col items-center justify-center"
+                style={{ width: "44%" }}
+              >
+                <Image
+                  src={owlgramLogo.src}
+                  width={140}
+                  height={140}
+                  alt="owlgramLogo"
+                />
+
+                <p className="font-bold text-black text-xl pt-6">OWLEGRAM </p>
+                <p className="text-[#30363F] text-[12px]">
+                  Messenger & Service
+                </p>
+              </CCard>
             </CCardGroup>
           </CCol>
         </CRow>

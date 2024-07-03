@@ -10,7 +10,7 @@ import {
 } from "@coreui/react-pro";
 
 import Image from "next/image";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useRef, useState } from "react";
 import LanguagesModule, { useLanguagesInjection } from "./languages.module";
 import { type Language } from "./interfaces";
 
@@ -18,6 +18,8 @@ import { Tooltip1 } from "@lib/components";
 import { GoEye } from "react-icons/go";
 import { IoIosAdd } from "react-icons/io";
 import Link from "next/link";
+import SmartTableBasicExample from "../lib/components/table/SmartTableBasixExample";
+import { usePathname } from "next/navigation";
 
 interface LanguagesProps {}
 
@@ -89,16 +91,59 @@ const languages = [
 ];
 
 const Languages: FunctionComponent<LanguagesProps> = () => {
+  const [forceRender, setForceRender] = useState(0);
+  const refId = useRef(null);
+  const pathName = usePathname();
   const { languagesController, languagesService } = useLanguagesInjection();
   const languages = languagesService.getLanguages(true);
+  useEffect(() => {
+    console.log(pathName);
+  }, [pathName]);
+
   return (
-    <div className="container">
-      <div className=" grid lg:grid-cols-4  md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-3">
-        {languages.map((lan, index) => (
-          <Language {...lan} key={index} />
-        ))}
-      </div>
-    </div>
+    <CRow className="container" key={forceRender}>
+      <CCol xs={12}>
+        <CCard className="mb-4">
+          <CCardHeader>
+            <h1 className="py-3 text-gray-700">Languages</h1>
+
+            <Link href={"/languages/create"}>
+              <CButton variant="outline" color={"secondary"}>
+                Add
+              </CButton>
+            </Link>
+          </CCardHeader>
+          <CCardBody>
+            <SmartTableBasicExample
+              _columns={[
+                {
+                  key: "title",
+                  filter: false,
+                },
+                {
+                  key: "flag",
+                  filter: false,
+                  sorter: false,
+                },
+              ]}
+              _data={languages}
+              _scopedColumns={{
+                flag: (item: any) => (
+                  <div className="!border !border-gray-200 !border-solid w-11 h-11 rounded-md my-3">
+                    <Image
+                      fill
+                      src={item.flag}
+                      alt="flag"
+                      className="!static "
+                    />
+                  </div>
+                ),
+              }}
+            />
+          </CCardBody>
+        </CCard>
+      </CCol>
+    </CRow>
   );
 };
 

@@ -46,25 +46,27 @@ const _nav = [
     // },
     href: "/",
   },
-  {
-    component: CNavTitle,
-    name: "Languages",
-  },
+  // {
+  //   component: CNavTitle,
+  //   name: "Languages",
+  // },
+  // {
+  //   component: CNavItem,
+  //   name: "Create",
+  //   href: "/languages/create",
+  // },
   {
     component: CNavItem,
-    name: "Create",
-    href: "/languages/create",
-  },
-  {
-    component: CNavItem,
-    name: "Languages List",
+    name: "Languages ",
     href: "/languages",
     // icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
   },
   {
-    component: CNavTitle,
-    name: "Road Maps",
+    component: CNavItem,
+    name: "About ",
+    href: "/about",
   },
+
   {
     component: CNavItem,
     name: "Road Maps List",
