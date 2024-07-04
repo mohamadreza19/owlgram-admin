@@ -1,4 +1,4 @@
-import React, { ElementType } from "react";
+import React, { ElementType } from 'react';
 import {
   cilBell,
   cilCalculator,
@@ -17,9 +17,9 @@ import {
   cilSpreadsheet,
   cilStar,
   cilLanguage,
-} from "@coreui/icons";
-import CIcon from "@coreui/icons-react";
-import { CNavGroup, CNavItem, CNavTitle } from "@coreui/react-pro";
+} from '@coreui/icons';
+import CIcon from '@coreui/icons-react';
+import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react-pro';
 
 export type Badge = {
   color: string;
@@ -38,13 +38,13 @@ export type NavItem = {
 const _nav = [
   {
     component: CNavItem,
-    name: "Dashboard",
-    icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
+    name: 'Dashboard',
+    // icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
     // badge: {
     //   color: "info-gradient",
     //   text: "NEW",
     // },
-    href: "/",
+    href: '/',
   },
   // {
   //   component: CNavTitle,
@@ -57,34 +57,52 @@ const _nav = [
   // },
   {
     component: CNavItem,
-    name: "Languages ",
-    href: "/languages",
+    name: 'Languages ',
+    href: '/languages',
     // icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
-    name: "About ",
-    href: "/about",
+    name: 'About ',
+    href: '/about',
+  },
+  {
+    component: CNavItem,
+    name: 'Services ',
+    href: '/services',
+  },
+  {
+    component: CNavItem,
+    name: 'Teams ',
+    href: '/teams',
   },
 
   {
     component: CNavItem,
-    name: "Road Maps List",
-    href: "/roadmaps",
+    name: 'Road Maps',
+    href: '/roadmaps',
   },
   {
     component: CNavItem,
-    name: "Create Road Map",
-    href: "/roadmaps/create",
+    name: 'Downloads',
+    href: '/downloads',
   },
+
   {
-    component: CNavTitle,
-    name: "Connect Us",
+    component: CNavItem,
+    name: 'Contact Us',
+    href: '/contact-us',
+  },
+
+  {
+    component: CNavItem,
+    name: 'Connect Us',
+    href: '/connect-us',
   },
   {
     component: CNavItem,
-    name: "Connect Us List",
-    href: "/connect-us",
+    name: 'Question Answer',
+    href: '/question-answer',
   },
 ];
 

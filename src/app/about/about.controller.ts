@@ -1,9 +1,9 @@
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import FilesApiService from "../files/files.api";
-import { AlertService } from "../lib/services";
-import AboutApiService from "./about.api";
-import AboutService from "./about.service";
-import { FormikCreateAboutOwlgramBasedLanguageId } from "./interfaces";
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
+import FilesApiService from '../files/files.api';
+import { AlertService } from '../lib/services';
+import AboutApiService from './about.api';
+import AboutService from './about.service';
+import { FormikCreateAboutOwlgramBasedLanguageId } from './interfaces';
 
 class AboutController {
   constructor(
@@ -29,12 +29,12 @@ class AboutController {
       language_id,
       media: responses,
     });
-    this.router.push("/languages");
+    this.router.push('/about');
 
     this.alertService.addDismissAlert({
-      message: "Content for aboutOwlegram based language add successful",
+      message: 'Content for aboutOwlegram based language add successful',
       open: true,
-      type: "success",
+      type: 'success',
     });
   };
   handleFetchAboutLanguageById = async (id: string) => {

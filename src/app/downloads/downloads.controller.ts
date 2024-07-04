@@ -1,9 +1,9 @@
-import DownloadsService from "./downloads.service";
-import DownloadsApiService from "./downloads.api";
-import { FormikCreate6 } from "../lib/shared/interfaces";
-import FilesApiService from "../files/files.api";
-import { AlertService } from "../lib/services";
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import DownloadsService from './downloads.service';
+import DownloadsApiService from './downloads.api';
+import { FormikCreate6 } from '../lib/shared/interfaces';
+import FilesApiService from '../files/files.api';
+import { AlertService } from '../lib/services';
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 
 class DownloadsController {
   constructor(
@@ -37,12 +37,12 @@ class DownloadsController {
         language_id: language_id,
       });
 
-      this.router.push("/languages");
+      this.router.push('/downloads');
 
       this.alertService.addDismissAlert({
-        message: "Download part add successful",
+        message: 'Download part add successful',
         open: true,
-        type: "success",
+        type: 'success',
       });
     }
   };

@@ -1,7 +1,12 @@
-"use client";
-import { ReactNode } from "react";
-import QuestionAnswerModule from "./questionAnswer.module";
+'use client';
+import { ReactNode } from 'react';
+import QuestionAnswerModule from './questionAnswer.module';
+import LanguagesModule from '../languages/languages.module';
 
 export default function Layout({ children }: { children: ReactNode }) {
-  return <QuestionAnswerModule>{children}</QuestionAnswerModule>;
+  return (
+    <QuestionAnswerModule>
+      <LanguagesModule>{children}</LanguagesModule>
+    </QuestionAnswerModule>
+  );
 }

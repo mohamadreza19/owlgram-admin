@@ -7,30 +7,29 @@ import {
   CCol,
   CRow,
 } from '@coreui/react-pro';
-import Link from 'next/link';
 import { FunctionComponent, useEffect, useState } from 'react';
+import SmartTableBasicExample from '../lib/components/table/SmartTableBasixExample';
+import Link from 'next/link';
 import Select1 from '../lib/components/select/Select1';
 import { useLanguagesInjection } from '../languages/languages.module';
+import { useDownloadsInjection } from './downloads.module';
 import { Language } from '../languages/interfaces';
-import { useContactUsInjection } from './contactUs.module';
-import SmartTableBasicExample from '../lib/components/table/SmartTableBasixExample';
 import Image from 'next/image';
-import Map1 from '../lib/components/map/Map1';
 
-interface TestProps {}
+interface DownloadsProps {}
 
-const Test: FunctionComponent<TestProps> = () => {
+const Downloads: FunctionComponent<DownloadsProps> = () => {
   const { languagesService } = useLanguagesInjection();
-  const { contactUsService, contactUsController } = useContactUsInjection();
+  const { downloadsService, downloadsController } = useDownloadsInjection();
   const languages = languagesService.getLanguages(true);
-  const ContactsUs = contactUsService.getContactUs(true);
+  const downloads = downloadsService.getDownloads(true);
   const [language, setLanguage] = useState<Language>();
   function handleSetSelectedOption(language: Language) {
     setLanguage(language);
   }
   useEffect(() => {
     if (language) {
-      contactUsController.getContactBasedLanguageId(language.id);
+      downloadsController.handleFetchDownloadsByLanguageId(language.id);
     }
   }, [language, language?.id]);
   return (
@@ -38,11 +37,11 @@ const Test: FunctionComponent<TestProps> = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader className="flex flex-col justify-center">
-            <h1 className="py-3 text-gray-700">Contact Us</h1>
+            <h1 className="py-3 text-gray-700">Downloads</h1>
 
             <div className=" flex gap-x-3">
               <Link
-                href={`/contact-us/create/${language?.id}?lan=${language?.title}`}
+                href={`/downloads/create/${language?.id}?lan=${language?.title}`}
               >
                 <CButton variant="outline" color={'secondary'}>
                   Add
@@ -58,25 +57,37 @@ const Test: FunctionComponent<TestProps> = () => {
             <SmartTableBasicExample
               _columns={[
                 {
-                  key: 'address',
+                  key: 'product',
                 },
                 {
-                  key: 'tel',
+                  key: 'os_name',
                 },
                 {
-                  key: 'map',
+                  key: 'link',
+                  filter: false,
+                  sorter: false,
+                },
+                {
+                  key: 'image',
                   filter: false,
                   sorter: false,
                 },
               ]}
               _data={
-                ContactsUs
+                downloads
                 // languages
               }
               _scopedColumns={{
-                map: (item: any) => {
+                image: (item: any) => {
                   return (
-                    <Map1 latLong={[Number(item.lat), Number(item.long)]} />
+                    <section className="!border !border-gray-200 !border-solid w-64 h-60 rounded-md my-3">
+                      <Image
+                        fill
+                        src={item.image}
+                        alt={'media'}
+                        className="!static "
+                      />
+                    </section>
                   );
                 },
               }}
@@ -88,4 +99,4 @@ const Test: FunctionComponent<TestProps> = () => {
   );
 };
 
-export default Test;
+export default Downloads;

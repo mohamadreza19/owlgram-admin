@@ -7,30 +7,29 @@ import {
   CCol,
   CRow,
 } from '@coreui/react-pro';
-import Link from 'next/link';
 import { FunctionComponent, useEffect, useState } from 'react';
-import Select1 from '../lib/components/select/Select1';
 import { useLanguagesInjection } from '../languages/languages.module';
 import { Language } from '../languages/interfaces';
-import { useContactUsInjection } from './contactUs.module';
+import { useServicesInjection } from './services.module';
 import SmartTableBasicExample from '../lib/components/table/SmartTableBasixExample';
 import Image from 'next/image';
-import Map1 from '../lib/components/map/Map1';
+import Link from 'next/link';
+import Select1 from '../lib/components/select/Select1';
 
-interface TestProps {}
+interface ServicesProps {}
 
-const Test: FunctionComponent<TestProps> = () => {
+const Services: FunctionComponent<ServicesProps> = () => {
   const { languagesService } = useLanguagesInjection();
-  const { contactUsService, contactUsController } = useContactUsInjection();
+  const { servicesService, servicesController } = useServicesInjection();
   const languages = languagesService.getLanguages(true);
-  const ContactsUs = contactUsService.getContactUs(true);
+  const services = servicesService.getServices(true);
   const [language, setLanguage] = useState<Language>();
   function handleSetSelectedOption(language: Language) {
     setLanguage(language);
   }
   useEffect(() => {
     if (language) {
-      contactUsController.getContactBasedLanguageId(language.id);
+      servicesController.handleFetchServiceBasedLanguageId(language.id);
     }
   }, [language, language?.id]);
   return (
@@ -38,11 +37,11 @@ const Test: FunctionComponent<TestProps> = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader className="flex flex-col justify-center">
-            <h1 className="py-3 text-gray-700">Contact Us</h1>
+            <h1 className="py-3 text-gray-700">Services</h1>
 
             <div className=" flex gap-x-3">
               <Link
-                href={`/contact-us/create/${language?.id}?lan=${language?.title}`}
+                href={`/services/create-service/${language?.id}?lan=${language?.title}`}
               >
                 <CButton variant="outline" color={'secondary'}>
                   Add
@@ -58,25 +57,30 @@ const Test: FunctionComponent<TestProps> = () => {
             <SmartTableBasicExample
               _columns={[
                 {
-                  key: 'address',
+                  key: 'content',
+                  filter: false,
                 },
                 {
-                  key: 'tel',
-                },
-                {
-                  key: 'map',
+                  key: 'media',
                   filter: false,
                   sorter: false,
                 },
               ]}
               _data={
-                ContactsUs
+                services
                 // languages
               }
               _scopedColumns={{
-                map: (item: any) => {
+                media: (item: any) => {
                   return (
-                    <Map1 latLong={[Number(item.lat), Number(item.long)]} />
+                    <section className="!border !border-gray-200 !border-solid w-72 h-64 rounded-md my-3">
+                      <Image
+                        fill
+                        src={item.media}
+                        alt={'media'}
+                        className="!static "
+                      />
+                    </section>
                   );
                 },
               }}
@@ -88,4 +92,4 @@ const Test: FunctionComponent<TestProps> = () => {
   );
 };
 
-export default Test;
+export default Services;

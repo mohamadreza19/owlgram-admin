@@ -1,9 +1,9 @@
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { FormikCreate2 } from "../lib/shared/interfaces";
-import ServicesApiService from "./services.api";
-import ServicesService from "./services.service";
-import { AlertService } from "../lib/services";
-import FilesApiService from "../files/files.api";
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
+import { FormikCreate2 } from '../lib/shared/interfaces';
+import ServicesApiService from './services.api';
+import ServicesService from './services.service';
+import { AlertService } from '../lib/services';
+import FilesApiService from '../files/files.api';
 
 class ServicesController {
   constructor(
@@ -34,12 +34,12 @@ class ServicesController {
         language_id,
         media: result,
       });
-      this.router.push("/languages");
+      this.router.push('/services');
 
       this.alertService.addDismissAlert({
-        message: "Service based language add successful",
+        message: 'Service based language add successful',
         open: true,
-        type: "success",
+        type: 'success',
       });
     }
   };

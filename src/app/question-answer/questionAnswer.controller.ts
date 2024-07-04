@@ -25,7 +25,7 @@ class QuestionAnswerController {
       values
     );
 
-    this.router.push("/languages");
+    this.router.push("/question-answer");
 
     this.alertService.addDismissAlert({
       open: true,

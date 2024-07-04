@@ -11,26 +11,28 @@ import Link from 'next/link';
 import { FunctionComponent, useEffect, useState } from 'react';
 import Select1 from '../lib/components/select/Select1';
 import { useLanguagesInjection } from '../languages/languages.module';
+import { useQuestionAnswerInjection } from './questionAnswer.module';
 import { Language } from '../languages/interfaces';
-import { useContactUsInjection } from './contactUs.module';
 import SmartTableBasicExample from '../lib/components/table/SmartTableBasixExample';
 import Image from 'next/image';
-import Map1 from '../lib/components/map/Map1';
 
-interface TestProps {}
+interface AuestionAnswerProps {}
 
-const Test: FunctionComponent<TestProps> = () => {
+const AuestionAnswer: FunctionComponent<AuestionAnswerProps> = () => {
   const { languagesService } = useLanguagesInjection();
-  const { contactUsService, contactUsController } = useContactUsInjection();
+  const { questionAnswerService, questionAnswerController } =
+    useQuestionAnswerInjection();
   const languages = languagesService.getLanguages(true);
-  const ContactsUs = contactUsService.getContactUs(true);
+  const questionAnswer = questionAnswerService.getQuestionAnswer(true);
   const [language, setLanguage] = useState<Language>();
   function handleSetSelectedOption(language: Language) {
     setLanguage(language);
   }
   useEffect(() => {
     if (language) {
-      contactUsController.getContactBasedLanguageId(language.id);
+      questionAnswerController.handleFetchQuestionAnswersBasedLanguageId(
+        language.id
+      );
     }
   }, [language, language?.id]);
   return (
@@ -38,11 +40,11 @@ const Test: FunctionComponent<TestProps> = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader className="flex flex-col justify-center">
-            <h1 className="py-3 text-gray-700">Contact Us</h1>
+            <h1 className="py-3 text-gray-700">Question And Answer</h1>
 
             <div className=" flex gap-x-3">
               <Link
-                href={`/contact-us/create/${language?.id}?lan=${language?.title}`}
+                href={`/question-answer/create/${language?.id}?lan=${language?.title}`}
               >
                 <CButton variant="outline" color={'secondary'}>
                   Add
@@ -58,28 +60,19 @@ const Test: FunctionComponent<TestProps> = () => {
             <SmartTableBasicExample
               _columns={[
                 {
-                  key: 'address',
+                  key: 'question',
                 },
                 {
-                  key: 'tel',
-                },
-                {
-                  key: 'map',
+                  key: 'answer',
                   filter: false,
                   sorter: false,
                 },
               ]}
               _data={
-                ContactsUs
+                questionAnswer
                 // languages
               }
-              _scopedColumns={{
-                map: (item: any) => {
-                  return (
-                    <Map1 latLong={[Number(item.lat), Number(item.long)]} />
-                  );
-                },
-              }}
+              _scopedColumns={{}}
             />
           </CCardBody>
         </CCard>
@@ -88,4 +81,4 @@ const Test: FunctionComponent<TestProps> = () => {
   );
 };
 
-export default Test;
+export default AuestionAnswer;

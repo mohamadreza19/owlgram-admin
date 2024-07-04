@@ -1,9 +1,9 @@
-"use client";
-import React, { createContext, useContext, useEffect, useMemo } from "react";
+'use client';
+import React, { createContext, useContext, useEffect, useMemo } from 'react';
 
-import LanguagesFactory from "./languages.factory";
-import { LanguagesInjectionEntities } from "./interfaces";
-import { useRouter } from "next/navigation";
+import LanguagesFactory from './languages.factory';
+import { LanguagesInjectionEntities } from './interfaces';
+import { useRouter } from 'next/navigation';
 
 const InjectionContext = createContext({});
 
@@ -22,7 +22,7 @@ function LanguagesModule({ children }: { children: React.ReactNode }) {
 
   return (
     <InjectionContext.Provider value={memorizedModlue}>
-      <main>{children}</main>
+      {children}
     </InjectionContext.Provider>
   );
 }

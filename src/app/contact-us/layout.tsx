@@ -1,5 +1,6 @@
 'use clinet';
 
+import LanguagesModule from '../languages/languages.module';
 import ContactUsModule from './contactUs.module';
 
 export default function Layout({
@@ -7,5 +8,9 @@ export default function Layout({
 }: {
   children: React.ReactNode;
 }) {
-  return <ContactUsModule>{children}</ContactUsModule>;
+  return (
+    <ContactUsModule>
+      <LanguagesModule>{children}</LanguagesModule>
+    </ContactUsModule>
+  );
 }

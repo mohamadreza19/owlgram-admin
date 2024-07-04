@@ -14,11 +14,14 @@ const nextConfig = {
 
   images: {
     domains: [
-      "encrypted-tbn0.gstatic.com",
-      "other-hostname.com",
-      "www.worldometers.info",
-      "owlegram.com",
+      'encrypted-tbn0.gstatic.com',
+      'other-hostname.com',
+      'www.worldometers.info',
+      'owlegram.com',
+      '127.0.0.1',
     ],
+    disableStaticImages: false,
+    unoptimized: true,
   },
 };
 

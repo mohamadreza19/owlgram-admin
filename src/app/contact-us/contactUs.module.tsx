@@ -1,8 +1,8 @@
-"use client";
-import React, { createContext, useContext, useMemo } from "react";
-import ContactUsFactory from "./contactUs.factory";
-import { ContactUsInjectionEntities } from "./interfaces";
-import { useRouter } from "next/navigation";
+'use client';
+import React, { createContext, useContext, useMemo } from 'react';
+import ContactUsFactory from './contactUs.factory';
+import { ContactUsInjectionEntities } from './interfaces';
+import { useRouter } from 'next/navigation';
 
 const InjectionContext = createContext({});
 
@@ -17,7 +17,7 @@ function ContactUsModule({ children }: { children: React.ReactNode }) {
 
   return (
     <InjectionContext.Provider value={memorizedModlue}>
-      <main>{children}</main>
+      {children}
     </InjectionContext.Provider>
   );
 }

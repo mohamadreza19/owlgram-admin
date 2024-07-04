@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import {
   CButton,
   CButtonGroup,
@@ -7,86 +7,86 @@ import {
   CCardHeader,
   CCol,
   CRow,
-} from "@coreui/react-pro";
+} from '@coreui/react-pro';
 
-import Image from "next/image";
-import { FunctionComponent, useEffect, useRef, useState } from "react";
-import LanguagesModule, { useLanguagesInjection } from "./languages.module";
-import { type Language } from "./interfaces";
+import Image from 'next/image';
+import { FunctionComponent, useEffect, useRef, useState } from 'react';
+import LanguagesModule, { useLanguagesInjection } from './languages.module';
+import { type Language } from './interfaces';
 
-import { Tooltip1 } from "@lib/components";
-import { GoEye } from "react-icons/go";
-import { IoIosAdd } from "react-icons/io";
-import Link from "next/link";
-import SmartTableBasicExample from "../lib/components/table/SmartTableBasixExample";
-import { usePathname } from "next/navigation";
+import { Tooltip1 } from '@lib/components';
+import { GoEye } from 'react-icons/go';
+import { IoIosAdd } from 'react-icons/io';
+import Link from 'next/link';
+import SmartTableBasicExample from '../lib/components/table/SmartTableBasixExample';
+import { usePathname } from 'next/navigation';
 
 interface LanguagesProps {}
 
 const languages = [
   {
-    title: "Al",
-    src: "https://www.worldometers.info/img/flags/al-flag.gif",
+    title: 'Al',
+    src: 'https://www.worldometers.info/img/flags/al-flag.gif',
   },
   {
-    title: "Tr",
-    src: "https://www.worldometers.info/img/flags/tu-flag.gif",
+    title: 'Tr',
+    src: 'https://www.worldometers.info/img/flags/tu-flag.gif',
   },
   {
-    title: "Al",
-    src: "https://www.worldometers.info/img/flags/al-flag.gif",
+    title: 'Al',
+    src: 'https://www.worldometers.info/img/flags/al-flag.gif',
   },
   {
-    title: "Tr",
-    src: "https://www.worldometers.info/img/flags/tu-flag.gif",
+    title: 'Tr',
+    src: 'https://www.worldometers.info/img/flags/tu-flag.gif',
   },
   {
-    title: "Al",
-    src: "https://www.worldometers.info/img/flags/al-flag.gif",
+    title: 'Al',
+    src: 'https://www.worldometers.info/img/flags/al-flag.gif',
   },
   {
-    title: "Tr",
-    src: "https://www.worldometers.info/img/flags/tu-flag.gif",
+    title: 'Tr',
+    src: 'https://www.worldometers.info/img/flags/tu-flag.gif',
   },
   {
-    title: "Al",
-    src: "https://www.worldometers.info/img/flags/al-flag.gif",
+    title: 'Al',
+    src: 'https://www.worldometers.info/img/flags/al-flag.gif',
   },
   {
-    title: "Tr",
-    src: "https://www.worldometers.info/img/flags/tu-flag.gif",
+    title: 'Tr',
+    src: 'https://www.worldometers.info/img/flags/tu-flag.gif',
   },
   {
-    title: "Al",
-    src: "https://www.worldometers.info/img/flags/al-flag.gif",
+    title: 'Al',
+    src: 'https://www.worldometers.info/img/flags/al-flag.gif',
   },
   {
-    title: "Tr",
-    src: "https://www.worldometers.info/img/flags/tu-flag.gif",
+    title: 'Tr',
+    src: 'https://www.worldometers.info/img/flags/tu-flag.gif',
   },
   {
-    title: "Al",
-    src: "https://www.worldometers.info/img/flags/al-flag.gif",
+    title: 'Al',
+    src: 'https://www.worldometers.info/img/flags/al-flag.gif',
   },
   {
-    title: "Tr",
-    src: "https://www.worldometers.info/img/flags/tu-flag.gif",
+    title: 'Tr',
+    src: 'https://www.worldometers.info/img/flags/tu-flag.gif',
   },
   {
-    title: "Al",
-    src: "https://www.worldometers.info/img/flags/al-flag.gif",
+    title: 'Al',
+    src: 'https://www.worldometers.info/img/flags/al-flag.gif',
   },
   {
-    title: "Tr",
-    src: "https://www.worldometers.info/img/flags/tu-flag.gif",
+    title: 'Tr',
+    src: 'https://www.worldometers.info/img/flags/tu-flag.gif',
   },
   {
-    title: "Al",
-    src: "https://www.worldometers.info/img/flags/al-flag.gif",
+    title: 'Al',
+    src: 'https://www.worldometers.info/img/flags/al-flag.gif',
   },
   {
-    title: "Tr",
-    src: "https://www.worldometers.info/img/flags/tu-flag.gif",
+    title: 'Tr',
+    src: 'https://www.worldometers.info/img/flags/tu-flag.gif',
   },
 ];
 
@@ -107,8 +107,8 @@ const Languages: FunctionComponent<LanguagesProps> = () => {
           <CCardHeader>
             <h1 className="py-3 text-gray-700">Languages</h1>
 
-            <Link href={"/languages/create"}>
-              <CButton variant="outline" color={"secondary"}>
+            <Link href={'/languages/create'}>
+              <CButton variant="outline" color={'secondary'}>
                 Add
               </CButton>
             </Link>
@@ -117,11 +117,11 @@ const Languages: FunctionComponent<LanguagesProps> = () => {
             <SmartTableBasicExample
               _columns={[
                 {
-                  key: "title",
+                  key: 'title',
                   filter: false,
                 },
                 {
-                  key: "flag",
+                  key: 'flag',
                   filter: false,
                   sorter: false,
                 },
@@ -129,13 +129,15 @@ const Languages: FunctionComponent<LanguagesProps> = () => {
               _data={languages}
               _scopedColumns={{
                 flag: (item: any) => (
-                  <div className="!border !border-gray-200 !border-solid w-11 h-11 rounded-md my-3">
-                    <Image
-                      fill
-                      src={item.flag}
-                      alt="flag"
-                      className="!static "
-                    />
+                  <div className="w-full">
+                    <section className="!border !border-gray-200 !border-solid w-11 h-11 rounded-md my-3">
+                      <Image
+                        fill
+                        src={item.flag}
+                        alt="flag"
+                        className="!static "
+                      />
+                    </section>
                   </div>
                 ),
               }}
@@ -149,89 +151,89 @@ const Languages: FunctionComponent<LanguagesProps> = () => {
 
 const menu = [
   {
-    header: "About Owlegram",
+    header: 'About Owlegram',
     section: [
       {
-        text: "Add",
-        baseHref: "/about/create/",
+        text: 'Add',
+        baseHref: '/about/create/',
       },
       {
-        text: "show",
-        baseHref: "/about/",
+        text: 'show',
+        baseHref: '/about/',
       },
     ],
   },
   {
-    header: "Services",
+    header: 'Services',
     section: [
       {
-        text: "Add",
-        baseHref: "/services/create-service/",
+        text: 'Add',
+        baseHref: '/services/create-service/',
       },
       {
-        text: "Show",
-        baseHref: "/services/",
+        text: 'Show',
+        baseHref: '/services/',
       },
     ],
   },
   {
-    header: "Teams",
+    header: 'Teams',
     section: [
       {
-        text: "Add",
-        baseHref: "/teams/create/",
+        text: 'Add',
+        baseHref: '/teams/create/',
       },
       {
-        text: "show",
-        baseHref: "/teams/",
+        text: 'show',
+        baseHref: '/teams/',
       },
     ],
   },
   {
-    header: "Downloads",
+    header: 'Downloads',
     section: [
       {
-        text: "add",
-        baseHref: "/downloads/create/",
+        text: 'add',
+        baseHref: '/downloads/create/',
       },
       {
-        text: "show",
-        baseHref: "/downloads/",
+        text: 'show',
+        baseHref: '/downloads/',
       },
     ],
   },
   {
-    header: "Contact Us",
+    header: 'Contact Us',
     section: [
       {
-        text: "add",
-        baseHref: "/contact-us/create/",
+        text: 'add',
+        baseHref: '/contact-us/create/',
       },
       {
-        text: "show",
-        baseHref: "/contact-us/",
+        text: 'show',
+        baseHref: '/contact-us/',
       },
     ],
   },
   {
-    header: "Connect Us",
+    header: 'Connect Us',
     section: [
       {
-        text: "add",
-        baseHref: "/connect-us/create/",
+        text: 'add',
+        baseHref: '/connect-us/create/',
       },
     ],
   },
   {
-    header: "Question And Answer",
+    header: 'Question And Answer',
     section: [
       {
-        text: "show",
-        baseHref: "/question-answer/",
+        text: 'show',
+        baseHref: '/question-answer/',
       },
       {
-        text: "add",
-        baseHref: "/question-answer/create/",
+        text: 'add',
+        baseHref: '/question-answer/create/',
       },
     ],
   },
@@ -241,7 +243,7 @@ const Language = (props: Language) => {
     <>
       <div className="tooltip1-hover m-auto w-fit border border-gray-300 !rounded-md  ">
         <div className="w-full  flex flex-col  justify-center items-center ">
-          <Link href={"/languages/" + props.id}>
+          <Link href={'/languages/' + props.id}>
             <Image
               className="!h-[150px] min-w-[200px] min-h-[150px] max-h-[150px] max-w-[200px] !static object-cover border-b border-gray-300"
               fill

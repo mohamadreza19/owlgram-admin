@@ -1,9 +1,9 @@
-"use client";
-import React, { createContext, useContext, useMemo } from "react";
+'use client';
+import React, { createContext, useContext, useMemo } from 'react';
 
-import ServicesFactory from "./services.factory";
-import { ServicesInjectionEntities } from "./interfaces";
-import { useRouter } from "next/navigation";
+import ServicesFactory from './services.factory';
+import { ServicesInjectionEntities } from './interfaces';
+import { useRouter } from 'next/navigation';
 
 const InjectionContext = createContext({});
 
@@ -18,7 +18,7 @@ function ServicesModule({ children }: { children: React.ReactNode }) {
 
   return (
     <InjectionContext.Provider value={memorizedModlue}>
-      <main>{children}</main>
+      {children}
     </InjectionContext.Provider>
   );
 }

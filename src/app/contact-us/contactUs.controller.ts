@@ -1,9 +1,9 @@
-import ContactUsService from "./contactUs.service";
-import ContactUsApiService from "./contactUs.api";
-import SocialNetworksApiService from "../socialNetworks/socialNetworks.api";
-import { FormikCreate5 } from "../lib/shared/interfaces";
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { AlertService } from "../lib/services";
+import ContactUsService from './contactUs.service';
+import ContactUsApiService from './contactUs.api';
+import SocialNetworksApiService from '../socialNetworks/socialNetworks.api';
+import { FormikCreate5 } from '../lib/shared/interfaces';
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
+import { AlertService } from '../lib/services';
 
 class ContactUsController {
   constructor(
@@ -27,11 +27,11 @@ class ContactUsController {
   handleCreateContactUs = async (values: FormikCreate5) => {
     await this.contactUsApiService.createContactUs(values);
 
-    this.router.push("/languages");
+    this.router.push('/contact-us');
     this.alertService.addDismissAlert({
-      message: "Contact add successful",
+      message: 'Contact add successful',
       open: true,
-      type: "success",
+      type: 'success',
     });
   };
 

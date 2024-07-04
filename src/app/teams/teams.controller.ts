@@ -1,9 +1,9 @@
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import FilesApiService from "../files/files.api";
-import { AlertService } from "../lib/services";
-import { FormikCreate3 } from "../lib/shared/interfaces";
-import TeamsApiService from "./teams.api";
-import TeamsService from "./teams.service";
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
+import FilesApiService from '../files/files.api';
+import { AlertService } from '../lib/services';
+import { FormikCreate3 } from '../lib/shared/interfaces';
+import TeamsApiService from './teams.api';
+import TeamsService from './teams.service';
 
 class TeamsController {
   constructor(
@@ -35,12 +35,12 @@ class TeamsController {
         side,
       });
 
-      this.router.push("/languages");
+      this.router.push('/teams');
 
       this.alertService.addDismissAlert({
-        message: "Team based language add successful",
+        message: 'Team based language add successful',
         open: true,
-        type: "success",
+        type: 'success',
       });
     }
   };

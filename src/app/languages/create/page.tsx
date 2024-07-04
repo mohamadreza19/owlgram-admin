@@ -1,7 +1,7 @@
-"use client";
-import { ChangeEvent, FunctionComponent } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
+'use client';
+import { ChangeEvent, FunctionComponent } from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 import {
   CButton,
   CCard,
@@ -10,21 +10,21 @@ import {
   CCol,
   CFormInput,
   CRow,
-} from "@coreui/react-pro";
-import FileInput from "@/app/lib/components/form/InputFile1";
-import TextInput from "@/app/lib/components/form/InputText1";
-import { useLanguagesInjection } from "../languages.module";
+} from '@coreui/react-pro';
+import FileInput from '@/app/lib/components/form/InputFile1';
+import TextInput from '@/app/lib/components/form/InputText1';
+import { useLanguagesInjection } from '../languages.module';
 
 import {
   FormInitalValuesFactory,
   FormSchemaValidatorFactory,
-} from "@/app/lib/services";
+} from '@/app/lib/services';
 
 interface CreateLanguageProps {}
 
 // Define the initial form values
 
-const inputClasses = "border border-gray-300 rounded-md px-3 py-2";
+const inputClasses = 'border border-gray-300 rounded-md px-3 py-2';
 const CreateLanguage: FunctionComponent<CreateLanguageProps> = () => {
   const { languagesController, languagesService } = useLanguagesInjection();
   return (
@@ -39,7 +39,7 @@ const CreateLanguage: FunctionComponent<CreateLanguageProps> = () => {
             <CCol xs={12}>
               <CCard className="mb-4">
                 <CCardHeader>
-                  <h1 className="py-3 text-gray-700">Create Languages</h1>
+                  <h1 className="py-3 text-gray-700">Create Language</h1>
                 </CCardHeader>
                 <CCardBody>
                   <Form className="w-full container flex flex-col gap-y-5 justify-center items-center">
@@ -68,7 +68,7 @@ const CreateLanguage: FunctionComponent<CreateLanguageProps> = () => {
                         onChange={(e) => {
                           if (e.target.files?.length) {
                             formikProps.setFieldValue(
-                              "file",
+                              'file',
                               e.target.files[0]
                             );
                           }
