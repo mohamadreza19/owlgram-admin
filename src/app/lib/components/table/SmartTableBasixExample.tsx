@@ -1,17 +1,17 @@
-import { FunctionComponent, useEffect, useState } from 'react';
+import { FunctionComponent, useEffect, useState } from "react";
 import {
   CBadge,
   CButton,
   CCardBody,
   CCollapse,
   CSmartTable,
-} from '@coreui/react-pro';
+} from "@coreui/react-pro";
 
 import type {
   Item,
   ScopedColumns,
-} from '@coreui/react-pro/dist/components/smart-table/CSmartTableInterface';
-import Image from 'next/image';
+} from "@coreui/react-pro/dist/components/smart-table/CSmartTableInterface";
+import Image from "next/image";
 
 interface Column {
   key?: string;
@@ -32,27 +32,10 @@ const SmartTableBasicExample: FunctionComponent<
 > = ({ _columns, _data, _scopedColumns }) => {
   const [details, setDetails] = useState<number[]>([]);
 
-  useEffect(() => {
-    // if (_data.length) {
-    //   const item = document.querySelector(
-    //     'a[aria-label="Go to first page"]'
-    //   ) as HTMLButtonElement;
-    //   if (item) {
-    //     // item.click();
-    //     setTimeout(() => {
-    //       item.click();
-    //     }, 300);
-    //     setTimeout(() => {
-    //       item.click();
-    //     }, 700);
-    //   }
-    // }
-  }, [_data.length]);
-
   return (
     <CSmartTable
       className="CSmartTable"
-      sorterValue={{ column: 'name', state: 'asc' }}
+      sorterValue={{ column: "name", state: "asc" }}
       clickableRows
       tableProps={
         {

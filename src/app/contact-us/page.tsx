@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import {
   CButton,
   CCard,
@@ -6,20 +6,24 @@ import {
   CCardHeader,
   CCol,
   CRow,
-} from '@coreui/react-pro';
-import Link from 'next/link';
-import { FunctionComponent, useEffect, useState } from 'react';
-import Select1 from '../lib/components/select/Select1';
-import { useLanguagesInjection } from '../languages/languages.module';
-import { Language } from '../languages/interfaces';
-import { useContactUsInjection } from './contactUs.module';
-import SmartTableBasicExample from '../lib/components/table/SmartTableBasixExample';
-import Image from 'next/image';
-import Map1 from '../lib/components/map/Map1';
+} from "@coreui/react-pro";
+import Link from "next/link";
+import { FunctionComponent, useEffect, useState } from "react";
+import Select1 from "../lib/components/select/Select1";
+import { useLanguagesInjection } from "../languages/languages.module";
+import { Language } from "../languages/interfaces";
+import { useContactUsInjection } from "./contactUs.module";
+import SmartTableBasicExample from "../lib/components/table/SmartTableBasixExample";
+import Image from "next/image";
+// import Map1 from "../lib/components/map/Map1";
+import dynamic from "next/dynamic";
+const Map1 = dynamic(() => import("../lib/components/map/Map1"), {
+  ssr: false,
+});
 
-interface TestProps {}
+interface ContactUsProps {}
 
-const Test: FunctionComponent<TestProps> = () => {
+const ContactUs: FunctionComponent<ContactUsProps> = () => {
   const { languagesService } = useLanguagesInjection();
   const { contactUsService, contactUsController } = useContactUsInjection();
   const languages = languagesService.getLanguages(true);
@@ -33,6 +37,7 @@ const Test: FunctionComponent<TestProps> = () => {
       contactUsController.getContactBasedLanguageId(language.id);
     }
   }, [language, language?.id]);
+
   return (
     <CRow className="container">
       <CCol xs={12}>
@@ -44,7 +49,7 @@ const Test: FunctionComponent<TestProps> = () => {
               <Link
                 href={`/contact-us/create/${language?.id}?lan=${language?.title}`}
               >
-                <CButton variant="outline" color={'secondary'}>
+                <CButton variant="outline" color={"secondary"}>
                   Add
                 </CButton>
               </Link>
@@ -58,13 +63,13 @@ const Test: FunctionComponent<TestProps> = () => {
             <SmartTableBasicExample
               _columns={[
                 {
-                  key: 'address',
+                  key: "address",
                 },
                 {
-                  key: 'tel',
+                  key: "tel",
                 },
                 {
-                  key: 'map',
+                  key: "map",
                   filter: false,
                   sorter: false,
                 },
@@ -76,7 +81,9 @@ const Test: FunctionComponent<TestProps> = () => {
               _scopedColumns={{
                 map: (item: any) => {
                   return (
-                    <Map1 latLong={[Number(item.lat), Number(item.long)]} />
+                    <>
+                      <Map1 latLong={[Number(item.lat), Number(item.long)]} />
+                    </>
                   );
                 },
               }}
@@ -88,4 +95,4 @@ const Test: FunctionComponent<TestProps> = () => {
   );
 };
 
-export default Test;
+export default ContactUs;

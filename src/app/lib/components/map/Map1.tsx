@@ -1,3 +1,4 @@
+"use client";
 import { Dispatch, FunctionComponent, SetStateAction, useState } from "react";
 import {
   MapContainer,
@@ -72,7 +73,6 @@ const ClickInterception = ({
     click: (e) => {
       const lat_log: Lat_Long = [e.latlng.lat, e.latlng.lng];
       handleSetLatLongState(lat_log);
-      console.log(e);
     },
   });
   return null;
