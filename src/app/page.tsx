@@ -11,15 +11,22 @@ import {
 } from "@coreui/react-pro";
 import ReactImg from "/public/ReactImg.png";
 
-import owlgramLogo from "/public/main-logo.svg";
+import background3 from "/public/images/background/background2.jpg";
+import Image from "next/image";
 export default function Home() {
   return (
     <div className="w-full container ">
       <CRow>
         <CCol lg={12}>
-          <CCard className="mb-3 p-4 background1">
-            <h1 className="text-7xl text-white font-extralight ">welcome </h1>
-          </CCard>
+          <div className="background3"></div>
+          {/* <div className="relative w-full h-40">
+              <Image
+                className="object-cover rounded-md"
+                alt=""
+                fill
+                src={background3.src}
+              />
+            </div> */}
         </CCol>
       </CRow>
     </div>
