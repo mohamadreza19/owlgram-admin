@@ -101,9 +101,9 @@ export interface FormikCreate7 {
   file: File | null;
 }
 export interface FormikCreate8 {
-  question : string;
-  answer : string;
-  language_id : string;
+  question: string;
+  answer: string;
+  language_id: string;
 }
 export type SocialNetworkLink = {
   social_id: string;
@@ -114,3 +114,7 @@ export type SocialNetwork = {
   title: string;
   id: string;
 };
+
+export interface StaticParams {
+  params: { id: string };
+}

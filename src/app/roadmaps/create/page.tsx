@@ -1,4 +1,5 @@
 "use client";
+export const dynamic = "force-static";
 import { Error1 } from "@/app/lib/components/form";
 import FileInput from "@/app/lib/components/form/InputFile1";
 import {

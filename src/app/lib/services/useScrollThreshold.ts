@@ -1,3 +1,4 @@
+"use client";
 // src/hooks/useScrollThreshold.ts
 import { useEffect, useState, useCallback } from "react";
 

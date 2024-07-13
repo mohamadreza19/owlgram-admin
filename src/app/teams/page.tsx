@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import {
   CButton,
   CCard,
@@ -6,15 +6,15 @@ import {
   CCardHeader,
   CCol,
   CRow,
-} from '@coreui/react-pro';
-import Link from 'next/link';
-import { FunctionComponent, useEffect, useState } from 'react';
-import Select1 from '../lib/components/select/Select1';
-import { useLanguagesInjection } from '../languages/languages.module';
-import { useTeamsInjection } from './teams.module';
-import { Language } from '../languages/interfaces';
-import SmartTableBasicExample from '../lib/components/table/SmartTableBasixExample';
-import Image from 'next/image';
+} from "@coreui/react-pro";
+import Link from "next/link";
+import { FunctionComponent, useEffect, useState } from "react";
+import Select1 from "../lib/components/select/Select1";
+import { useLanguagesInjection } from "../languages/languages.module";
+import { useTeamsInjection } from "./teams.module";
+import { Language } from "../languages/interfaces";
+import SmartTableBasicExample from "../lib/components/table/SmartTableBasixExample";
+import Image from "next/image";
 
 interface TeamsProps {}
 
@@ -41,9 +41,9 @@ const Teams: FunctionComponent<TeamsProps> = () => {
 
             <div className=" flex gap-x-3">
               <Link
-                href={`/teams/create/'${language?.id}?lan=${language?.title}`}
+                href={`/teams/create/${language?.id}?lan=${language?.title}`}
               >
-                <CButton variant="outline" color={'secondary'}>
+                <CButton variant="outline" color={"secondary"}>
                   Add
                 </CButton>
               </Link>
@@ -57,16 +57,16 @@ const Teams: FunctionComponent<TeamsProps> = () => {
             <SmartTableBasicExample
               _columns={[
                 {
-                  key: 'name',
+                  key: "name",
                   filter: false,
                 },
                 {
-                  key: 'side',
+                  key: "side",
                   filter: false,
                   sorter: false,
                 },
                 {
-                  key: 'image',
+                  key: "image",
                   filter: false,
                   sorter: false,
                 },
@@ -82,7 +82,7 @@ const Teams: FunctionComponent<TeamsProps> = () => {
                       <Image
                         fill
                         src={item.image}
-                        alt={'media'}
+                        alt={"media"}
                         className="!static "
                       />
                     </section>

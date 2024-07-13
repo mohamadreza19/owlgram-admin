@@ -18,7 +18,7 @@ function DownloadsModule({ children }: { children: React.ReactNode }) {
 
   return (
     <InjectionContext.Provider value={memorizedModlue}>
-      <main>{children}</main>
+      {children}
     </InjectionContext.Provider>
   );
 }
